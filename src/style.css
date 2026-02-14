@@ -160,8 +160,11 @@ button:focus {
 }
 
 .logo {
-  height: 1.4em !important;
-  width: 2.5em !important;
+  height: 4rem !important;
+  width: auto !important;
+  max-height: 40px !important;
+  object-fit: contain;
+  display: block;
 }
 
 .navbar-nav .nav-link {

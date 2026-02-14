@@ -42,6 +42,7 @@ function NavBar() {
             expand="md"
             className={navColour ? "sticky" : "navbar"}
         >
+            <div className="navbar-glass-overlay" />
             <Container>
                 <Navbar.Brand
                     href="#home"

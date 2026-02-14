@@ -81,16 +81,107 @@ button:focus {
 /* --------- */
 /* Navbar Section  */
 /* --------- */
-.sticky {
-  background-color: #1b1a2ea9 !important;
-  transition: all 0.3s ease-out 0s !important;
-  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
-  backdrop-filter: blur(15px) !important;
+/* ---- Tech Glass Navbar ---- */
+
+/* Glass overlay — always present, fades in/out via opacity */
+.navbar-glass-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(3, 200, 75, 0.035) 1px, transparent 0),
+    linear-gradient(
+      135deg,
+      rgba(8, 12, 24, 0.85),
+      rgba(10, 16, 35, 0.78),
+      rgba(6, 12, 28, 0.82)
+    );
+  background-size: 20px 20px, 100% 100%;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 60px -15px rgba(3, 200, 75, 0.06);
+  border-bottom: 1px solid rgba(3, 200, 75, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.04);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Reveal glass when scrolled */
+.sticky .navbar-glass-overlay {
+  opacity: 1;
+}
+
+/* Animated glowing circuit-trace line at bottom */
+.navbar-glass-overlay::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(3, 200, 75, 0) 5%,
+    rgba(3, 200, 75, 0.4) 25%,
+    rgba(0, 204, 68, 0.8) 50%,
+    rgba(3, 200, 75, 0.4) 75%,
+    rgba(3, 200, 75, 0) 95%,
+    transparent 100%
+  );
+  z-index: 10;
+  animation: circuitPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Glass refraction highlight at top edge */
+.navbar-glass-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Navbar content sits above glass overlay */
+.navbar > .container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes circuitPulse {
+  0%, 100% {
+    opacity: 0.5;
+    filter: brightness(0.9);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.3);
+  }
 }
 
 .navbar {
   position: fixed !important;
-  transition: all 0.3s ease-out 0s !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
   padding: 0.3rem 2rem !important;
   font-size: 1.2rem !important;
 }
@@ -152,6 +243,9 @@ button:focus {
     font-size: 1.4rem !important;
     background-color: #181a27 !important;
   }
+  .sticky .navbar-glass-overlay {
+    background-size: 16px 16px, 100% 100%;
+  }
   .navbar-nav .nav-item a::after {
     display: none !important;
   }
@@ -166,6 +260,15 @@ button:focus {
   max-height: 40px !important;
   object-fit: contain;
   display: block;
+  transition: filter 0.3s ease;
+}
+
+.sticky .logo {
+  filter: drop-shadow(0 0 6px rgba(3, 200, 75, 0.25));
+}
+
+.sticky .logo:hover {
+  filter: drop-shadow(0 0 10px rgba(3, 200, 75, 0.45));
 }
 
 .navbar-nav .nav-link {
@@ -191,7 +294,7 @@ button:focus {
 
 .navbar-nav .nav-item a {
   font-weight: 400;
-  transition: all 0.3s ease-out 0s;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 1;
 }
@@ -200,18 +303,30 @@ button:focus {
   content: "";
   position: relative;
   display: block;
-  height: 5px;
+  height: 2px;
   width: 0;
-  border-radius: 16px;
-  background: #03c84b;
+  border-radius: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 200, 75, 0),
+    #03c84b,
+    #00ff8c,
+    #03c84b,
+    rgba(3, 200, 75, 0)
+  );
   bottom: 1px;
   left: 0;
   z-index: -1;
-  transition: all 0.3s ease-out 0s;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-nav .nav-item a:hover {
+  text-shadow: 0 0 12px rgba(3, 200, 75, 0.3);
 }
 
 .navbar-nav .nav-item a:hover::after {
   width: 100%;
+  box-shadow: 0 0 8px rgba(3, 200, 75, 0.5), 0 0 20px rgba(3, 200, 75, 0.15);
 }
 
 /* --------- */

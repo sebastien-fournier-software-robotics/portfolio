@@ -9,7 +9,7 @@ import Toolstack from "./Toolstack";
 function About() {
   return (
     <>
-      <Container fluid className="about-section">
+      <Container fluid className="about-section" id="about">
         <Container>
           <Row style={{ justifyContent: "center", padding: "10px" }}>
             <Col

@@ -10,7 +10,7 @@ import bitsOfCode from "../../Assets/Projects/blog.png";
 
 function Projects() {
   return (
-    <Container fluid className="project-section">
+    <Container fluid className="project-section" id="project">
       <Container>
         <h1 className="project-heading">
           My Recent <strong className="purple">Works </strong>

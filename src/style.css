@@ -258,7 +258,6 @@ button:focus {
   height: 100% !important;
   z-index: -2 !important;
   pointer-events: auto !important;
-  background: linear-gradient(to left, rgb(10 22 56), rgb(18, 43, 93)) !important;
 }
 
 .home-header {

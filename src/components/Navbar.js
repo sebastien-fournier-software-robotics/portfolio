@@ -63,9 +63,9 @@ const FRFlag = ({ className }) => (
 /* ------------------------------------------------------------------ */
 
 const navLinks = [
-    { id: "about",   label: "ABOUT",    Icon: AiOutlineUser },
-    { id: "project", label: "PROJECTS", Icon: AiOutlineFundProjectionScreen },
-    { id: "contact", label: "CONTACT",  Icon: AiOutlineMail },
+    { id: "about",   labelKey: "navbar.about",    Icon: AiOutlineUser },
+    { id: "project", labelKey: "navbar.projects",  Icon: AiOutlineFundProjectionScreen },
+    { id: "contact", labelKey: "navbar.contact",   Icon: AiOutlineMail },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -79,8 +79,8 @@ function NavBar() {
     /** True once the user scrolls past the threshold — triggers the sticky glass style. */
     const [navColour, updateNavbar] = useState(false);
 
-    /** Current language ("en" | "fr") and toggle callback from context. */
-    const { language, toggleLanguage } = useLanguage();
+    /** Current language ("en" | "fr"), toggle callback, and t() translator from context. */
+    const { language, toggleLanguage, t } = useLanguage();
 
     /**
      * Adds the "sticky" class to the navbar once the user has scrolled
@@ -128,13 +128,13 @@ function NavBar() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto" defaultActiveKey="#home">
                         {/* Section links — generated from the navLinks config array */}
-                        {navLinks.map(({ id, label, Icon }) => (
+                        {navLinks.map(({ id, labelKey, Icon }) => (
                             <Nav.Item key={id}>
                                 <Nav.Link
                                     href={`#${id}`}
                                     onClick={(e) => { scrollToSection(e, id); updateExpanded(false); }}
                                 >
-                                    <Icon style={iconStyle} /> {label}
+                                    <Icon style={iconStyle} /> {t(labelKey)}
                                 </Nav.Link>
                             </Nav.Item>
                         ))}

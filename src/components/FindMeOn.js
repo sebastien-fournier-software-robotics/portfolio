@@ -3,15 +3,18 @@ import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
+import { useLanguage } from "../Context/LanguageContext";
 
 function FindMeOn() {
+    const { t } = useLanguage();
+
     return (
         <Container id="contact">
             <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
                 <Col md={12} className="home-about-social">
-                    <h1>Find Me On</h1>
+                    <h1>{t("findMeOn.title")}</h1>
                     <p>
-                        Feel free to <span className="purple">connect </span>with me
+                        {t("findMeOn.subtitle")}
                     </p>
                     <ul className="home-about-social-links">
                         <li className="social-icons">

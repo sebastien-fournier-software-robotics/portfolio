@@ -2,19 +2,19 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import {
     AiFillGithub,
-    AiOutlineTwitter,
-    AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useLanguage } from "../Context/LanguageContext";
 
 function Footer() {
+    const { t } = useLanguage();
     let date = new Date();
     let year = date.getFullYear();
     return (
         <Container fluid className="footer">
             <Row>
                 <Col md="4" className="footer-copywright">
-                    <h3>Designed and Developed by Seb Fournier</h3>
+                    <h3>{t("footer.designed")}</h3>
                 </Col>
                 <Col md="4" className="footer-copywright">
                     <h3>Copyright© {year} Seb Fournier</h3>

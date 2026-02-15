@@ -9,9 +9,12 @@ import {
     AiOutlineDownload,
 } from "react-icons/ai";
 import { MdOutlineEmail } from "react-icons/md";
+import { useLanguage } from "../../Context/LanguageContext";
 import pdf from "../../Assets/../Assets/CV_ingenieur_robotique_vision.pdf";
 
 function Home() {
+    const { t } = useLanguage();
+
     return (
         <section>
             <Container fluid className="home-section" id="home">
@@ -20,14 +23,14 @@ function Home() {
                     <Row className="align-items-center">
                         <Col md={7} className="home-header">
                             <h1 style={{ paddingBottom: 15 }} className="heading">
-                                Hello There!{" "}
+                                {t("home.greeting")}{" "}
                                 <span className="wave" role="img" aria-labelledby="wave">
                                     🤖
                                 </span>
                             </h1>
 
                             <h1 className="heading-name">
-                                I'M
+                                {t("home.iAm")}
                                 <strong className="main-name"> SEB FOURNIER</strong>
                             </h1>
 
@@ -44,7 +47,7 @@ function Home() {
                                     }}
                                 >
                                     <MdOutlineEmail style={{ marginBottom: "2px" }} />
-                                    &nbsp;Contact Me
+                                    &nbsp;{t("home.contactBtn")}
                                 </Button>
 
                                 <Button
@@ -54,7 +57,7 @@ function Home() {
                                     className="home-download-btn"
                                 >
                                     <AiOutlineDownload style={{ marginBottom: "2px" }} />
-                                    &nbsp;Download CV
+                                    &nbsp;{t("home.downloadCV")}
                                 </Button>
                             </div>
                         </Col>

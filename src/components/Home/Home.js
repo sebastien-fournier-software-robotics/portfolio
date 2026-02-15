@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import homeLogo from "../../Assets/robot_dev.png";
 import Particle from "../Particle";
+import ParticleSphere from "../ParticleSphere";
 import Home2 from "./Home2";
 import Type from "./Type";
 import {
@@ -69,15 +69,7 @@ function Home() {
                                 overflow: "visible",
                             }}
                         >
-                            <img
-                                src={homeLogo}
-                                alt="home pic"
-                                style={{
-                                    height: "550px",
-                                    maxWidth: "none",
-                                    objectFit: "contain",
-                                }}
-                            />
+                            <ParticleSphere />
                         </Col>
                     </Row>
                 </Container>

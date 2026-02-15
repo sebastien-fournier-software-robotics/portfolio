@@ -7,7 +7,7 @@ function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row>
+        <Row className="align-items-center">
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600 }}>
               LET ME <span className="purple"> INTRODUCE </span> MYSELF

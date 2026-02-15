@@ -8,6 +8,7 @@ import * as THREE from "three";
  *   • Repulsion  — particles near the cursor push outward
  *   • Highlight  — opacity brightens on hover
  *   • Speed boost — rotation accelerates while hovering
+ *   • Satellite  — a small dot orbiting inside the sphere with a fading trail
  */
 
 /* ---------- helpers ---------- */
@@ -47,6 +48,31 @@ const REPULSE_STRENGTH = 0.7;    // max outward push distance
 const RESTORE_SPEED = 2.5;       // how fast particles snap back
 const HOVER_SPEED_MUL = 4.0;     // rotation multiplier on hover
 const SPEED_LERP = 3.0;          // easing speed for rotation transition
+
+// Satellite (inner orbiting dots) — shared defaults + per-satellite overrides
+const SAT_DEFAULTS = {
+  radius: 0.045,                 // satellite dot radius
+  glowScale: 0.38,              // soft halo size around the dot
+  orbitRadius: 1.05,             // how far from centre the satellite orbits
+  verticalScale: 0.55,           // flattens the orbit vertically
+  trailLength: 50,               // number of trail dots
+  trailDotSize: 0.018,           // largest trail dot (near satellite)
+  trailOpacity: 0.45,            // peak trail opacity
+};
+
+const SATS = [
+  { // Satellite A — wider, slower orbit
+    ...SAT_DEFAULTS,
+    freqX: 0.30, freqY: 0.47, freqZ: 0.37,
+    phaseX: 0, phaseY: Math.PI / 3, phaseZ: Math.PI / 5,
+  },
+  { // Satellite B — tighter, faster, tilted orbit
+    ...SAT_DEFAULTS,
+    orbitRadius: 0.85,
+    freqX: 0.43, freqY: 0.31, freqZ: 0.53,
+    phaseX: Math.PI / 2, phaseY: Math.PI / 7, phaseZ: Math.PI * 0.8,
+  },
+];
 
 /* ---------- component ---------- */
 
@@ -106,6 +132,94 @@ export default function ParticleSphere() {
       new THREE.MeshBasicMaterial({ visible: false })
     );
     group.add(hitSphere);
+
+    /* --- Shared glow texture (reused by both satellites) --- */
+    const glowCanvas = document.createElement("canvas");
+    glowCanvas.width = 64;
+    glowCanvas.height = 64;
+    const ctx = glowCanvas.getContext("2d");
+    const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grad.addColorStop(0, "rgba(26, 26, 26, 0.50)");
+    grad.addColorStop(0.35, "rgba(26, 26, 26, 0.18)");
+    grad.addColorStop(1, "rgba(26, 26, 26, 0)");
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 64, 64);
+    const glowTexture = new THREE.CanvasTexture(glowCanvas);
+
+    /* --- Shared trail shader (reused by both satellites) --- */
+    const trailShaderMat = new THREE.ShaderMaterial({
+      uniforms: {
+        uColor: { value: new THREE.Color(0x1a1a1a) },
+        uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
+      },
+      vertexShader: /* glsl */ `
+        attribute float aSize;
+        attribute float aAlpha;
+        varying float vAlpha;
+        uniform float uPixelRatio;
+        void main() {
+          vAlpha = aAlpha;
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          gl_PointSize = aSize * uPixelRatio * (300.0 / -mv.z);
+          gl_Position = projectionMatrix * mv;
+        }
+      `,
+      fragmentShader: /* glsl */ `
+        uniform vec3 uColor;
+        varying float vAlpha;
+        void main() {
+          float d = length(gl_PointCoord - vec2(0.5));
+          if (d > 0.5) discard;
+          float circle = smoothstep(0.5, 0.15, d);
+          gl_FragColor = vec4(uColor, circle * vAlpha);
+        }
+      `,
+      transparent: true,
+      depthWrite: false,
+    });
+
+    /* --- Build satellites (dot + glow + trail each) --- */
+    const satellites = SATS.map((cfg) => {
+      // Dot mesh
+      const geom = new THREE.SphereGeometry(cfg.radius, 16, 8);
+      const mat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
+      const mesh = new THREE.Mesh(geom, mat);
+      scene.add(mesh);
+
+      // Glow halo (child of mesh → follows automatically)
+      const glowMat = new THREE.SpriteMaterial({
+        map: glowTexture,
+        transparent: true,
+        depthWrite: false,
+      });
+      const glow = new THREE.Sprite(glowMat);
+      glow.scale.set(cfg.glowScale, cfg.glowScale, cfg.glowScale);
+      mesh.add(glow);
+
+      // Trail buffers
+      const trailPos = new Float32Array(cfg.trailLength * 3);
+      const trailSizes = new Float32Array(cfg.trailLength);
+      const trailAlphas = new Float32Array(cfg.trailLength);
+
+      for (let i = 0; i < cfg.trailLength; i++) {
+        const t = i / (cfg.trailLength - 1);
+        trailSizes[i] = cfg.trailDotSize * (1 - t * 0.85);
+        trailAlphas[i] = cfg.trailOpacity * (1 - t);
+      }
+
+      const trailGeom = new THREE.BufferGeometry();
+      trailGeom.setAttribute("position", new THREE.BufferAttribute(trailPos, 3));
+      trailGeom.setAttribute("aSize", new THREE.BufferAttribute(trailSizes, 1));
+      trailGeom.setAttribute("aAlpha", new THREE.BufferAttribute(trailAlphas, 1));
+      trailGeom.setDrawRange(0, 0);
+
+      const trail = new THREE.Points(trailGeom, trailShaderMat);
+      scene.add(trail);
+
+      return { cfg, mesh, geom, mat, glowMat, trailPos, trailGeom, trail, filled: 0 };
+    });
+
+    let satTime = 0;
 
     /* --- Raycaster & mouse --- */
     const raycaster = new THREE.Raycaster();
@@ -196,6 +310,30 @@ export default function ParticleSphere() {
       }
       posAttr.needsUpdate = true;
 
+      /* — Satellite orbits (Lissajous curves inside the sphere) — */
+      satTime += delta;
+      for (const s of satellites) {
+        const { cfg, mesh, trailPos, trailGeom } = s;
+        const rx = cfg.orbitRadius * Math.sin(cfg.freqX * satTime + cfg.phaseX);
+        const ry = cfg.orbitRadius * cfg.verticalScale * Math.sin(cfg.freqY * satTime + cfg.phaseY);
+        const rz = cfg.orbitRadius * Math.cos(cfg.freqZ * satTime + cfg.phaseZ);
+        mesh.position.set(rx, ry, rz);
+
+        // Shift trail history (newest at index 0)
+        for (let i = cfg.trailLength - 1; i > 0; i--) {
+          trailPos[i * 3]     = trailPos[(i - 1) * 3];
+          trailPos[i * 3 + 1] = trailPos[(i - 1) * 3 + 1];
+          trailPos[i * 3 + 2] = trailPos[(i - 1) * 3 + 2];
+        }
+        trailPos[0] = rx;
+        trailPos[1] = ry;
+        trailPos[2] = rz;
+
+        if (s.filled < cfg.trailLength) s.filled++;
+        trailGeom.setDrawRange(0, s.filled);
+        trailGeom.attributes.position.needsUpdate = true;
+      }
+
       /* — Gentle camera sway (clamp to avoid wild movement when mouse is outside) — */
       const clampedX = Math.max(-1, Math.min(1, mouseNDC.x));
       const clampedY = Math.max(-1, Math.min(1, mouseNDC.y));
@@ -214,6 +352,7 @@ export default function ParticleSphere() {
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
+      trailShaderMat.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 2);
     }
     window.addEventListener("resize", onResize);
 
@@ -227,6 +366,14 @@ export default function ParticleSphere() {
       material.dispose();
       hitSphere.geometry.dispose();
       hitSphere.material.dispose();
+      for (const s of satellites) {
+        s.geom.dispose();
+        s.mat.dispose();
+        s.glowMat.dispose();
+        s.trailGeom.dispose();
+      }
+      glowTexture.dispose();
+      trailShaderMat.dispose();
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }

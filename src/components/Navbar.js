@@ -144,9 +144,9 @@ function NavBar() {
                             <Button className="lang-toggle-btn" onClick={toggleLanguage}>
                                 {/* Decorative corner-bracket frame (styled via CSS) */}
                                 <span className="lang-toggle-corners" />
-                                <UKFlag className={flagClass("en")} />
-                                <span className="lang-separator">/</span>
                                 <FRFlag className={flagClass("fr")} />
+                                <span className="lang-separator">/</span>
+                                <UKFlag className={flagClass("en")} />
                             </Button>
                         </Nav.Item>
                     </Nav>

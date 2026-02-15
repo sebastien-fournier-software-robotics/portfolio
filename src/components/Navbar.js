@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineFundProjectionScreen, AiOutlineUser, AiOutlineMail } from "react-icons/ai";
 import { useLanguage } from "../Context/LanguageContext";
 import logo from "../Assets/home_logo.png";
 
@@ -65,6 +65,7 @@ const FRFlag = ({ className }) => (
 const navLinks = [
     { id: "about",   label: "ABOUT",    Icon: AiOutlineUser },
     { id: "project", label: "PROJECTS", Icon: AiOutlineFundProjectionScreen },
+    { id: "contact", label: "CONTACT",  Icon: AiOutlineMail },
 ];
 
 /* ------------------------------------------------------------------ */

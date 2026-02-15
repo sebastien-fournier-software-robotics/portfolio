@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
+import FindMeOn from "./components/FindMeOn";
 import { LanguageProvider } from "./Context/LanguageContext";
 import "./style.css";
 import "./App.css";
@@ -31,6 +32,7 @@ function App() {
         <Home />
         <About />
         <Projects />
+        <FindMeOn />
         <Footer />
       </div>
     </LanguageProvider>

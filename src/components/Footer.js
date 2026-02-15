@@ -23,22 +23,22 @@ function Footer() {
                     <ul className="footer-icons">
                         <li className="social-icons">
                             <a
-                                href="https://github.com/sebastien-fournier-software-robotics"
-                                style={{ color: "#e0e0e0" }}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <AiFillGithub />
-                            </a>
-                        </li>
-                        <li className="social-icons">
-                            <a
                                 href="https://www.linkedin.com/in/sebastien-fournier-software-robotics/"
                                 style={{ color: "#e0e0e0" }}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <FaLinkedinIn />
+                            </a>
+                        </li>
+                        <li className="social-icons">
+                            <a
+                                href="https://github.com/sebastien-fournier-software-robotics"
+                                style={{ color: "#e0e0e0" }}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <AiFillGithub />
                             </a>
                         </li>
                     </ul>

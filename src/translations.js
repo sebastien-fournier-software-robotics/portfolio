@@ -13,7 +13,10 @@ const translations = {
     /* ------------------------------------------------------------------ */
     navbar: {
         about: { en: "ABOUT", fr: "À PROPOS" },
+        skills: { en: "SKILLS", fr: "COMPÉTENCES" },
+        experiences: { en: "EXPERIENCE", fr: "EXPÉRIENCES" },
         projects: { en: "PROJECTS", fr: "PROJETS" },
+        education: { en: "EDUCATION", fr: "FORMATIONS" },
         contact: { en: "CONTACT", fr: "CONTACT" },
     },
 

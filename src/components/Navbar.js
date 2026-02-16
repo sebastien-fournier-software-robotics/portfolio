@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { AiOutlineFundProjectionScreen, AiOutlineUser, AiOutlineMail, AiFillGithub } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineMail, AiFillGithub, AiOutlineCode, AiOutlineHistory, AiOutlineFolderOpen, AiOutlineRead } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { useLanguage } from "../Context/LanguageContext";
 import logo from "../Assets/home_logo.png";
@@ -64,9 +64,12 @@ const FRFlag = ({ className }) => (
 /* ------------------------------------------------------------------ */
 
 const navLinks = [
-    { id: "about",   labelKey: "navbar.about",    Icon: AiOutlineUser },
-    { id: "project", labelKey: "navbar.projects",  Icon: AiOutlineFundProjectionScreen },
-    { id: "contact", labelKey: "navbar.contact",   Icon: AiOutlineMail },
+    { id: "about",       labelKey: "navbar.about",       Icon: AiOutlineUser },
+    { id: "skills",      labelKey: "navbar.skills",     Icon: AiOutlineCode },
+    { id: "experiences", labelKey: "navbar.experiences", Icon: AiOutlineHistory },
+    { id: "project",     labelKey: "navbar.projects",   Icon: AiOutlineFolderOpen },
+    { id: "education",   labelKey: "navbar.education",   Icon: AiOutlineRead },
+    { id: "contact",     labelKey: "navbar.contact",    Icon: AiOutlineMail },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -135,7 +138,9 @@ function NavBar() {
                                     href={`#${id}`}
                                     onClick={(e) => { scrollToSection(e, id); updateExpanded(false); }}
                                 >
-                                    <Icon style={iconStyle} /> {t(labelKey)}
+                                    <span className="nav-link-content">
+                                        <Icon style={iconStyle} /> {t(labelKey)}
+                                    </span>
                                 </Nav.Link>
                             </Nav.Item>
                         ))}

@@ -1,10 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Github from "./Github";
-import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/robot_dev.png";
-import Toolstack from "./Toolstack";
 import { useLanguage } from "../../Context/LanguageContext";
 
 function About() {
@@ -36,18 +33,6 @@ function About() {
               <img src={laptopImg} alt="about" className="img-fluid" />
             </Col>
           </Row>
-          <h1 className="project-heading">
-            {t("about.skillset")}
-          </h1>
-
-          <Techstack />
-
-          <h1 className="project-heading">
-            {t("about.tools")}
-          </h1>
-          <Toolstack />
-
-          <Github />
         </Container>
       </Container>
     </>

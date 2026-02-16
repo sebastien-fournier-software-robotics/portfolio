@@ -158,13 +158,15 @@ const translations = {
             en: <>Know Who <strong className="purple">I'M</strong></>,
             fr: <>Découvrez <strong className="purple">qui je suis</strong></>,
         },
+    },
+
+    /* ------------------------------------------------------------------ */
+    /*  Skills / Compétences section                                      */
+    /* ------------------------------------------------------------------ */
+    skills: {
         skillset: {
-            en: <>Professional <strong className="purple">Skillset</strong></>,
-            fr: <>Compétences <strong className="purple">professionnelles</strong></>,
-        },
-        tools: {
-            en: <><strong className="purple">Tools</strong> I use</>,
-            fr: <><strong className="purple">Outils</strong> que j'utilise</>,
+            en: <>Professional <strong className="purple">Skillset</strong> & <strong className="purple">Tools</strong></>,
+            fr: <>Compétences <strong className="purple">professionnelles</strong> & <strong className="purple">outils</strong></>,
         },
     },
 

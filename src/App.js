@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import FindMeOn from "./components/FindMeOn";
+import Skills from "./components/Skills/Skills";
 import { LanguageProvider } from "./Context/LanguageContext";
 import "./style.css";
 import "./App.css";
@@ -24,21 +25,27 @@ function App() {
   }, []);
 
   return (
-    <LanguageProvider>
-      <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Particle />
-        <Navbar />
-        <Home />
-        <About />
-        <section id="skills" style={{ minHeight: "50vh", padding: "80px 0" }} />
-        <section id="experiences" style={{ minHeight: "50vh", padding: "80px 0" }} />
-        <Projects />
-        <section id="education" style={{ minHeight: "50vh", padding: "80px 0" }} />
-        <FindMeOn />
-        <Footer />
-      </div>
-    </LanguageProvider>
+    <>
+      {/* Particle must stay outside LanguageProvider: the lang-transition
+          wrapper uses transform during transitions, which creates a new
+          containing block for position:fixed and causes the particles to
+          glitch/slide with the content. */}
+      <Particle />
+      <LanguageProvider>
+        <Preloader load={load} />
+        <div className="App" id={load ? "no-scroll" : "scroll"}>
+          <Navbar />
+          <Home />
+          <About />
+          <Skills />
+          <section id="experiences" style={{ minHeight: "50vh", padding: "80px 0" }} />
+          <Projects />
+          <section id="education" style={{ minHeight: "50vh", padding: "80px 0" }} />
+          <FindMeOn />
+          <Footer />
+        </div>
+      </LanguageProvider>
+    </>
   );
 }
 // Portfolio TODO list:
@@ -47,7 +54,6 @@ function App() {
 // TODO : Compétences + stack
 // TODO : Expériences / clients
 // TODO : Projets
-// TODO : Formation
-// TODO : (Certifications)
+// TODO : Formation + (Certifications)
 // [x] : Contact Section : CTA + Liens : Mail / LinkedIn / GitHub
 export default App;

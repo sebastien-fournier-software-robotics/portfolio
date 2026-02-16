@@ -969,6 +969,54 @@ button:focus {
 
 
 /* -----------------------------------------------------------
+   8b. CONTACT (FindMeOn) SECTION
+   ----------------------------------------------------------- */
+
+.contact-section {
+  position: relative !important;
+  z-index: 1;
+  padding-top: 150px !important;
+  padding-bottom: 80px !important;
+  background: transparent !important;
+  color: #1a1a1a !important;
+}
+
+.contact-section .home-about-social {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-section .project-heading {
+  padding-bottom: 10px;
+}
+
+.contact-section .contact-subtitle {
+  color: #555555;
+  font-size: 1.05em;
+  line-height: 1.6;
+  padding-bottom: 25px;
+}
+
+.contact-section .home-about-social-links {
+  padding-top: 20px !important;
+}
+
+/* Contact section: different hover effect for social icons */
+.contact-section .home-social-icons::before {
+  display: none;
+}
+
+.contact-section .home-social-icons:hover {
+  color: #1a1a1a !important;
+  background: #ffffff !important;
+  border-color: #1a1a1a !important;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* -----------------------------------------------------------
    9. RESUME
    ----------------------------------------------------------- */
 

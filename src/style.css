@@ -478,6 +478,17 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 
 /* --- 4f. Navbar mobile & tablet overrides (menu déroulant) --- */
 
+@keyframes navbar-dropdown-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1199px) {
   .navbar {
     padding: 0.75rem 1rem !important;
@@ -485,9 +496,19 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.98) !important;
   }
 
+  /* Afficher l'ombre de la navbar quand le menu est ouvert (même en haut de page) */
+  .navbar:has(.navbar-collapse.show) .navbar-glass-overlay {
+    opacity: 1;
+  }
+
   /* Logo plus petit sur mobile */
   .logo {
     max-height: 32px !important;
+  }
+
+  /* Transition rapide du collapse pour fluidité (évite le saut avec transition: none) */
+  .navbar-collapse.collapsing {
+    transition: height 0.25s ease-out !important;
   }
 
   /* Menu déroulant : visible uniquement quand .show (Bootstrap collapse) */
@@ -506,6 +527,32 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
     align-items: center !important;
     width: 100%;
   }
+
+  /* Animation défilement haut → bas (démarre dès .collapsing pour être synchrone avec l'ouverture) */
+  .navbar-collapse.collapsing .navbar-nav > .nav-item,
+  .navbar-collapse.collapsing .navbar-nav > .navbar-social-icons-mobile,
+  .navbar-collapse.show .navbar-nav > .nav-item,
+  .navbar-collapse.show .navbar-nav > .navbar-social-icons-mobile {
+    animation: navbar-dropdown-slide-in 0.35s ease-out forwards;
+    opacity: 0;
+  }
+
+  .navbar-collapse.collapsing .navbar-nav > .nav-item:nth-child(1),
+  .navbar-collapse.show .navbar-nav > .nav-item:nth-child(1) { animation-delay: 0.02s; }
+  .navbar-collapse.collapsing .navbar-nav > .nav-item:nth-child(2),
+  .navbar-collapse.show .navbar-nav > .nav-item:nth-child(2) { animation-delay: 0.05s; }
+  .navbar-collapse.collapsing .navbar-nav > .nav-item:nth-child(3),
+  .navbar-collapse.show .navbar-nav > .nav-item:nth-child(3) { animation-delay: 0.08s; }
+  .navbar-collapse.collapsing .navbar-nav > .nav-item:nth-child(4),
+  .navbar-collapse.show .navbar-nav > .nav-item:nth-child(4) { animation-delay: 0.11s; }
+  .navbar-collapse.collapsing .navbar-nav > .nav-item:nth-child(5),
+  .navbar-collapse.show .navbar-nav > .nav-item:nth-child(5) { animation-delay: 0.14s; }
+  .navbar-collapse.collapsing .navbar-nav > .nav-item:nth-child(6),
+  .navbar-collapse.show .navbar-nav > .nav-item:nth-child(6) { animation-delay: 0.17s; }
+  .navbar-collapse.collapsing .navbar-nav > .nav-item:nth-child(7),
+  .navbar-collapse.show .navbar-nav > .nav-item:nth-child(7) { animation-delay: 0.20s; }
+  .navbar-collapse.collapsing .navbar-nav > .navbar-social-icons-mobile,
+  .navbar-collapse.show .navbar-nav > .navbar-social-icons-mobile { animation-delay: 0.23s; }
 
   .navbar-nav .nav-item {
     margin-left: 0;

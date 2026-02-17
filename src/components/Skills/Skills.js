@@ -1,32 +1,64 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { AiOutlineCarryOut, AiOutlineTeam, AiOutlineTool, AiOutlineShareAlt, AiOutlineCompass, AiOutlineEnvironment, AiOutlineProject, AiOutlineCode } from "react-icons/ai";
-import { SiCplusplus, SiPython, SiKubernetes, SiSwagger, SiFastapi, SiRos, SiNvidia, SiOpencv, SiPytorch, SiTensorflow, SiDocker, SiGitlab, SiGithubactions, SiGrafana, SiBoost, SiPytest, SiRobotframework, SiJira, SiGoogle } from "react-icons/si";
+import { AiOutlineCarryOut, AiOutlineTeam, AiOutlineTool, AiOutlineShareAlt, AiOutlineCompass, AiOutlineEnvironment, AiOutlineProject, AiOutlineCode, AiOutlineCluster } from "react-icons/ai";
+import { SiCplusplus, SiSwagger, SiFastapi, SiRos, SiNvidia, SiPytorch, SiTensorflow, SiDocker, SiGitlab, SiGithubactions, SiGrafana, SiBoost, SiRobotframework, SiJira } from "react-icons/si";
 import { useLanguage } from "../../Context/LanguageContext";
 import translations from "../../Context/translations";
 
 import Nav2Icon from "../../Assets/TechIcons/Nav2.png";
+import PythonIcon from "../../Assets/TechIcons/Python.svg";
+import OpenCVIcon from "../../Assets/TechIcons/OpenCV.svg";
+import PyTestIcon from "../../Assets/TechIcons/PyTest.svg";
 import HuggingFaceIcon from "../../Assets/TechIcons/HuggingFace.svg";
 import PlotJugglerIcon from "../../Assets/TechIcons/PlotJuggler.svg";
 import FoxGloveIcon from "../../Assets/TechIcons/FoxGlove.svg";
+import GoogleIcon from "../../Assets/TechIcons/Google.svg";
 import GazeboIcon from "../../Assets/TechIcons/Gazebo.svg";
 import RVizIcon from "../../Assets/TechIcons/RViz.svg";
 import TensorRTIcon from "../../Assets/TechIcons/TensorRT.svg";
 
 const TECH_ICON_IMGS = {
   "Nav2": Nav2Icon,
+  "Python": PythonIcon,
+  "OpenCV": OpenCVIcon,
+  "PyTest": PyTestIcon,
   "HuggingFace": HuggingFaceIcon,
   "PlotJuggler": PlotJugglerIcon,
   "FoxGlove": FoxGloveIcon,
+  "Google Test": GoogleIcon,
   "Gazebo": GazeboIcon,
   "RViz": RVizIcon,
   "TensorRT": TensorRTIcon,
 };
 
+const TECH_COLORS = {
+  "C++": "#00599C",
+  "Python": "#FFD43B",
+  "microservices": "#000000",
+  "API Rest": "#000000",
+  "FastAPI": "#009688",
+  "ROS2": "#22314E",
+  "NVIDIA Jetson": "#76B900",
+  "OpenCV": "#00A86B",
+  "PyTorch": "#EE4C2C",
+  "TensorFlow": "#FF6F00",
+  "GitLab CI": "#FC6D26",
+  "GitHub Actions": "#2088FF",
+  "Docker": "#2496ED",
+  "Grafana": "#F46800",
+  "Boost": "#8511b3",
+  "PyTest": "#DA0000",
+  "Robot Framework": "#00C0B5",
+  "Agile": "#0052CC",
+  "Scrum": "#0052CC",
+  "Google Test": "#34A853",
+  "Isaac Sim": "#76B900",
+};
+
 const TECH_ICONS = {
   "C++": SiCplusplus,
-  "Python": SiPython,
-  "microservices": SiKubernetes,
+  "Python": null,
+  "microservices": AiOutlineCluster,
   "API Rest": SiSwagger,
   "FastAPI": SiFastapi,
   "ROS2": SiRos,
@@ -35,7 +67,7 @@ const TECH_ICONS = {
   "RTAB-Map": AiOutlineEnvironment,
   "Cartographer": AiOutlineEnvironment,
   "NVIDIA Jetson": SiNvidia,
-  "OpenCV": SiOpencv,
+  "OpenCV": null,
   "PyTorch": SiPytorch,
   "TensorFlow": SiTensorflow,
   "HuggingFace": null,
@@ -49,9 +81,9 @@ const TECH_ICONS = {
   "Gazebo": null,
   "Isaac Sim": SiNvidia,
   "RViz": null,
-  "Google Test": SiGoogle,
+  "Google Test": null,
   "Boost": SiBoost,
-  "PyTest": SiPytest,
+  "PyTest": null,
   "Robot Framework": SiRobotframework,
   "Agile": SiJira,
   "Scrum": SiJira,
@@ -134,7 +166,7 @@ function Skills() {
                               {iconSrc ? (
                                 <img src={iconSrc} alt={tag} className="skills-tech-badge-img" />
                               ) : (
-                                <>{IconComponent ? <IconComponent /> : <AiOutlineCode />}</>
+                                <>{IconComponent ? <IconComponent color={TECH_COLORS[tag] || "#444"} /> : <AiOutlineCode color="#444" />}</>
                               )}
                             </span>
                             {tag}

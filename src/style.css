@@ -1422,14 +1422,14 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1em;
+  font-size: 1.15em;
   line-height: 1;
   opacity: 0.9;
 }
 
 .skills-tech-badge-img {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   object-fit: contain;
 }
 

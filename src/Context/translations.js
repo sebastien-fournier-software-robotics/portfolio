@@ -166,19 +166,19 @@ const translations = {
             delivery: {
                 title: { en: "Deliver", fr: "Livrer" },
                 description: {
-                    en: "Meet your deadlines, clear the backlog, get the job done.",
+                    en: "Meet your deadlines, clear the backlog, deliver the results.",
                     fr: "Respectez vos deadlines, dépilez le backlog, livrez les résultats.",
                 },
             },
             leadership: {
-                title: { en: "Lead", fr: "Animer" },
+                title: { en: "Facilitate", fr: "Animer" },
                 description: {
-                    en: "Facilitate clear communication and collaboration across disciplines.",
+                    en: "Foster communication and collaboration across disciplines.",
                     fr: "Favoriser la communication et la collaboration entre métiers.",
                 },
             },
             expertise: {
-                title: { en: "Own", fr: "Porter" },
+                title: { en: "Drive", fr: "Porter" },
                 description: {
                     en: "End-to-end expertise on your projects, from design to deployment.",
                     fr: "Une expertise complète sur vos projets, de la conception au déploiement.",
@@ -187,7 +187,7 @@ const translations = {
             knowledge: {
                 title: { en: "Transfer", fr: "Transmettre" },
                 description: {
-                    en: "Preserve expertise and knowledge.",
+                    en: "Preserve know-how and knowledge.",
                     fr: "Conservez le savoir-faire et les connaissances.",
                 },
             },
@@ -208,7 +208,7 @@ const translations = {
             robotics: {
                 title: { en: "Robotics & Navigation", fr: "Robotique et Navigation" },
                 description: {
-                    en: "Autonomous navigation and robot control: sensor fusion, 2D/3D localization, mapping, trajectory planning, obstacle detection and avoidance.",
+                    en: "Navigation and control, sensor fusion, 2D/3D localization, mapping, trajectory planning, obstacle detection and avoidance.",
                     fr: "Navigation et contrôle, fusion de capteurs, localisation 2D/3D, mapping, planification de trajectoires, détection et évitement d'obstacles.",
                 },
                 tech: ["ROS2", "Nav2", "SLAM Toolbox", "RTAB-Map", "Cartographer"],
@@ -224,7 +224,7 @@ const translations = {
             devops: {
                 title: { en: "Automation & DevOps", fr: "Automatisation, DevOps" },
                 description: {
-                    en: "CI/CD pipelines and infrastructure automation.",
+                    en: "CI/CD, pipelines and infrastructure automation.",
                     fr: "CI/CD, pipelines et automatisation d'infrastructure.",
                 },
                 tech: ["GitLab CI", "GitHub Actions", "Docker"],
@@ -268,11 +268,11 @@ const translations = {
         },
         operationalItems: {
             en: [
-                "Electronic board prototyping and software tools",
+                "Software tools and electronic board prototyping",
                 "System tuning",
                 "Technical support and training",
                 "Study and specification writing",
-                "Client quoting and project management",
+                "Quoting and project management",
                 "Technology watch",
                 "Coordination and facilitation",
             ],

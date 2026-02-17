@@ -158,6 +158,134 @@ const translations = {
             en: <>Professional <strong className="purple">Skillset</strong> & <strong className="purple">Tools</strong></>,
             fr: <>Compétences <strong className="purple">professionnelles</strong> & <strong className="purple">outils</strong></>,
         },
+        valueProposition: {
+            en: "What I bring to the table",
+            fr: "Ma valeur apportée",
+        },
+        valuePillars: {
+            delivery: {
+                title: { en: "Deliver", fr: "Livrer" },
+                description: {
+                    en: "Meet your deadlines, clear the backlog, get the job done.",
+                    fr: "Respectez vos deadlines, dépilez le backlog, livrez les résultats.",
+                },
+            },
+            leadership: {
+                title: { en: "Lead", fr: "Animer" },
+                description: {
+                    en: "Facilitate clear communication and collaboration across disciplines.",
+                    fr: "Favoriser la communication et la collaboration entre métiers.",
+                },
+            },
+            expertise: {
+                title: { en: "Own", fr: "Porter" },
+                description: {
+                    en: "End-to-end expertise on your projects, from design to deployment.",
+                    fr: "Une expertise complète sur vos projets, de la conception au déploiement.",
+                },
+            },
+            knowledge: {
+                title: { en: "Transfer", fr: "Transmettre" },
+                description: {
+                    en: "Preserve expertise and knowledge.",
+                    fr: "Conservez le savoir-faire et les connaissances.",
+                },
+            },
+        },
+        expertiseDomains: {
+            en: "Operations, management & support",
+            fr: "Opérationnel, gestion & accompagnement",
+        },
+        categoriesSectionTitle: {
+            en: "Technical expertise",
+            fr: "Expertise technique",
+        },
+        categories: {
+            architecture: {
+                title: { en: "Architecture & Software Development", fr: "Architecture et développement logiciel" },
+                description: {
+                    en: "Design of systems with modern, modular, robust and maintainable code, suited to production and deployment requirements.",
+                    fr: "Conception de systèmes avec code moderne, modulaire, robuste et maintenable, adaptés aux exigences de production et du déploiement.",
+                },
+                tech: ["C++", "Python", "microservices", "API Rest", "FastAPI"],
+            },
+            robotics: {
+                title: { en: "Robotics & Navigation", fr: "Robotique et Navigation" },
+                description: {
+                    en: "Autonomous navigation and robot control: sensor fusion, 2D/3D localization, mapping, trajectory planning, obstacle detection and avoidance.",
+                    fr: "Navigation et contrôle, fusion de capteurs, localisation 2D/3D, mapping, planification de trajectoires, détection et évitement d'obstacles.",
+                },
+                tech: ["ROS2", "Nav2", "SLAM Toolbox", "RTAB-Map", "Cartographer"],
+            },
+            computerVision: {
+                title: { en: "Computer Vision & Edge AI", fr: "Computer Vision & Edge AI" },
+                description: {
+                    en: "Train, integrate, optimize and industrialize your perception / machine learning pipelines.",
+                    fr: "Entraîner, intégrer, optimiser, industrialiser vos pipelines de perception / machine learning.",
+                },
+                tech: ["NVIDIA Jetson", "OpenCV", "PyTorch", "TensorFlow", "HuggingFace", "TensorRT"],
+            },
+            devops: {
+                title: { en: "Automation & DevOps", fr: "Automatisation, DevOps" },
+                description: {
+                    en: "CI/CD pipelines and infrastructure automation.",
+                    fr: "CI/CD, pipelines et automatisation d'infrastructure.",
+                },
+                tech: ["GitLab CI", "GitHub Actions", "Docker"],
+            },
+            observability: {
+                title: { en: "Observability", fr: "Observabilité" },
+                description: {
+                    en: "Monitoring, visualization and analysis of system data.",
+                    fr: "Monitoring, visualisation et analyse des données système.",
+                },
+                tech: ["PlotJuggler", "FoxGlove", "Grafana"],
+            },
+            simulation: {
+                title: { en: "Simulation", fr: "Simulation" },
+                description: {
+                    en: "Reducing the Sim-to-Real gap for robust deployment.",
+                    fr: "Réduction du « Sim-to-Real gap » pour un déploiement robuste.",
+                },
+                tech: ["Gazebo", "Isaac Sim", "RViz"],
+            },
+            qa: {
+                title: { en: "Q&A", fr: "Q&A" },
+                description: {
+                    en: "Unit and functional testing, non-regression.",
+                    fr: "Tests unitaires et fonctionnels, non-régression.",
+                },
+                tech: ["Google Test", "Boost.test", "PyTest", "Robot Framework"],
+            },
+            strategy: {
+                title: { en: "Strategy & Business Vision", fr: "Stratégie et vision business" },
+                description: {
+                    en: "Align technical and business stakeholders through clear communication, bilingual (FR/EN) and a shared strategic vision.",
+                    fr: "Aligner les parties prenantes techniques et business grâce à une communication claire, bilingue (FR/EN) et une vision stratégique partagée.",
+                },
+                tech: ["Agile", "Scrum", "Facilitation", "Roadmap"],
+            },
+        },
+        operationalItems: {
+            en: [
+                "Electronic board prototyping and software tools",
+                "System tuning",
+                "Technical support and training",
+                "Study and specification writing",
+                "Client quoting and project management",
+                "Technology watch",
+                "Coordination and facilitation",
+            ],
+            fr: [
+                "Prototypage d'outils software et de carte électronique",
+                "Réglages systèmes",
+                "Support technique et formation",
+                "Rédaction d'études et spécifications",
+                "Chiffrage et Gestion de projets",
+                "Veille technologique",
+                "Coordination et animation",
+            ],
+        },
     },
 
     /* ------------------------------------------------------------------ */

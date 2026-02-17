@@ -18,7 +18,7 @@ function Projects() {
         <h1 className="project-heading">
           {t("projects.title")}
         </h1>
-        <p style={{ color: "#555555" }}>
+        <p className="project-subtitle">
           {t("projects.subtitle")}
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>

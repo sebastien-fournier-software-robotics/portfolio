@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -83,17 +83,44 @@ function NavBar() {
     /** True once the user scrolls past the threshold — triggers the sticky glass style. */
     const [navColour, updateNavbar] = useState(false);
 
+    const navRef = useRef(null);
+
     /** Current language ("en" | "fr"), toggle callback, t() translator, and phase from context. */
     const { language, toggleLanguage, t, phase } = useLanguage();
 
     const scrollHandler = useCallback(() => {
         updateNavbar(window.scrollY >= 20);
+        updateExpanded(false); /* fermer le menu au scroll sur mobile */
     }, []);
+
+    const resizeHandler = useCallback(() => {
+        if (window.innerWidth >= 768) {
+            updateExpanded(false); /* fermer si on repasse en desktop */
+        }
+    }, []);
+
+    const handleClickOutside = useCallback((e) => {
+        if (expand && navRef.current && !navRef.current.contains(e.target)) {
+            updateExpanded(false);
+        }
+    }, [expand]);
 
     useEffect(() => {
         window.addEventListener("scroll", scrollHandler, { passive: true });
         return () => window.removeEventListener("scroll", scrollHandler);
     }, [scrollHandler]);
+
+    useEffect(() => {
+        window.addEventListener("resize", resizeHandler);
+        return () => window.removeEventListener("resize", resizeHandler);
+    }, [resizeHandler]);
+
+    useEffect(() => {
+        if (expand) {
+            document.addEventListener("click", handleClickOutside);
+            return () => document.removeEventListener("click", handleClickOutside);
+        }
+    }, [expand, handleClickOutside]);
 
     /**
      * Returns the appropriate CSS class for a flag SVG based on
@@ -103,6 +130,7 @@ function NavBar() {
         `lang-flag ${language === lang ? "lang-active" : "lang-inactive"}`;
 
     return (
+        <div ref={navRef}>
         <Navbar
             expanded={expand}
             fixed="top"
@@ -153,6 +181,29 @@ function NavBar() {
                             </Button>
                         </Nav.Item>
 
+                        {/* Social icons — visible in mobile menu only (desktop: navbar-social-icons) */}
+                        <div className="navbar-social-icons-mobile">
+                            <a
+                                href="https://www.linkedin.com/in/sebastien-fournier-software-robotics/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="navbar-social-link"
+                                aria-label="LinkedIn"
+                                onClick={() => updateExpanded(false)}
+                            >
+                                <FaLinkedinIn />
+                            </a>
+                            <a
+                                href="https://github.com/sebastien-fournier-software-robotics"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="navbar-social-link"
+                                aria-label="GitHub"
+                                onClick={() => updateExpanded(false)}
+                            >
+                                <AiFillGithub />
+                            </a>
+                        </div>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
@@ -179,6 +230,7 @@ function NavBar() {
                 </a>
             </div>
         </Navbar>
+        </div>
     );
 }
 

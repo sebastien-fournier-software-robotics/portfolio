@@ -31,7 +31,7 @@ function Home() {
                                 <strong className="main-name"> SEBASTIEN FOURNIER</strong>
                             </h1>
 
-                            <div style={{ padding: 50, textAlign: "left" }}>
+                            <div className="home-type-wrap">
                                 <Type />
                             </div>
 

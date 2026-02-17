@@ -94,8 +94,8 @@ function NavBar() {
     }, []);
 
     const resizeHandler = useCallback(() => {
-        if (window.innerWidth >= 768) {
-            updateExpanded(false); /* fermer si on repasse en desktop */
+        if (window.innerWidth >= 1200) {
+            updateExpanded(false); /* fermer si on repasse en desktop (xl) */
         }
     }, []);
 
@@ -134,7 +134,7 @@ function NavBar() {
         <Navbar
             expanded={expand}
             fixed="top"
-            expand="md"
+            expand="xl"
             className={navColour ? "sticky" : "navbar"}
         >
             {/* Frosted-glass background — made visible by the "sticky" class */}

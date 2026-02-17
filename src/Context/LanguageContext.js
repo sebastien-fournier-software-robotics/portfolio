@@ -9,7 +9,7 @@ const LanguageContext = createContext();
  */
 const EXIT_MS = 200;
 
-export function LanguageProvider({ children }) {
+export function LanguageProvider({ navbar, children }) {
   const [language, setLanguage] = useState("fr");
   /** "idle" | "exit" | "enter" */
   const [phase, setPhase] = useState("idle");
@@ -69,12 +69,13 @@ export function LanguageProvider({ children }) {
   );
 
   const ctx = useMemo(
-    () => ({ language, toggleLanguage, t }),
-    [language, toggleLanguage, t],
+    () => ({ language, toggleLanguage, t, phase }),
+    [language, toggleLanguage, t, phase],
   );
 
   return (
     <LanguageContext.Provider value={ctx}>
+      {navbar}
       <div className={`lang-transition ${phase !== "idle" ? `lang-${phase}` : ""}`}>
         {children}
       </div>

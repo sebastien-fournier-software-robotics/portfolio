@@ -83,8 +83,8 @@ function NavBar() {
     /** True once the user scrolls past the threshold — triggers the sticky glass style. */
     const [navColour, updateNavbar] = useState(false);
 
-    /** Current language ("en" | "fr"), toggle callback, and t() translator from context. */
-    const { language, toggleLanguage, t } = useLanguage();
+    /** Current language ("en" | "fr"), toggle callback, t() translator, and phase from context. */
+    const { language, toggleLanguage, t, phase } = useLanguage();
 
     const scrollHandler = useCallback(() => {
         updateNavbar(window.scrollY >= 20);
@@ -135,14 +135,14 @@ function NavBar() {
                                     href={`#${id}`}
                                     onClick={(e) => { scrollToSection(e, id); updateExpanded(false); }}
                                 >
-                                    <span className="nav-link-content">
+                                    <span className={`nav-link-content lang-transition ${phase !== "idle" ? `lang-${phase}` : ""}`}>
                                         <Icon style={iconStyle} /> {t(labelKey)}
                                     </span>
                                 </Nav.Link>
                             </Nav.Item>
                         ))}
 
-                        {/* Language toggle — switches between EN and FR */}
+                        {/* Language toggle — switches between EN and FR (no animation) */}
                         <Nav.Item>
                             <Button className="lang-toggle-btn" onClick={toggleLanguage}>
                                 {/* Decorative corner-bracket frame (styled via CSS) */}

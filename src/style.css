@@ -1887,3 +1887,9 @@ button:focus {
   transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1),
               opacity  0.25s cubic-bezier(0, 0, 0.2, 1);
 }
+
+/* Navbar tabs — same switch effect as page content */
+.lang-transition-nav {
+  display: flex;
+  align-items: center;
+}

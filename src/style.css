@@ -1498,6 +1498,231 @@ button:focus {
   transform: translateY(-1px);
 }
 
+/* -----------------------------------------------------------
+   Experiences / Clients section
+   ----------------------------------------------------------- */
+
+.experiences-section {
+  text-align: left;
+}
+
+.experiences-section .project-heading {
+  text-align: center;
+  padding-bottom: 0;
+  font-weight: 500;
+  font-size: 2.8em !important;
+  letter-spacing: 0.08em;
+  color: #1a1a1a !important;
+}
+
+.experiences-subtitle {
+  text-align: center;
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 40px;
+  font-family: "Inter", sans-serif;
+}
+
+/* Timeline: 48px left column for track (center at 24px) + connector, cards start at 48px */
+.experiences-timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 48px;
+}
+
+/* Vertical track — centered at 24px in the left column */
+.experiences-timeline-track {
+  position: absolute;
+  left: 23px;
+  top: 32px;
+  bottom: 32px;
+  width: 1px;
+  background: #666666;
+  opacity: 0.4;
+}
+
+.experiences-timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.experiences-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Node — 10px circle centered on track (24px from timeline left) */
+.experiences-timeline-node {
+  position: absolute;
+  left: -29px;  /* 24 - 10/2 - 48 = -29 (item starts at 48px) */
+  top: 20px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(26, 26, 26, 0.35);
+  box-shadow:
+    0 0 0 4px rgba(26, 26, 26, 0.08),
+    0 0 8px 2px rgba(26, 26, 26, 0.12);
+  animation: experiences-particle-pulse 2.5s ease-in-out infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.experiences-timeline-node-dot {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(26, 26, 26, 0.5);
+}
+
+@keyframes experiences-particle-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.92); }
+}
+
+.experiences-timeline-item:hover .experiences-timeline-node {
+  animation: none;
+  opacity: 1;
+  transform: scale(1.4);
+  background: rgba(85, 85, 85, 0.45);
+  box-shadow:
+    0 0 0 6px rgba(85, 85, 85, 0.1),
+    0 0 16px 4px rgba(85, 85, 85, 0.18);
+}
+
+/* Connector: from track (24px) to card (48px), vertically centered with node */
+.experiences-timeline-connector {
+  position: absolute;
+  left: -24px;  /* 24 - 48 */
+  top: 24px;
+  width: 24px;
+  height: 1px;
+  background: #666666;
+  opacity: 0.4;
+}
+
+.experiences-timeline-item:hover .experiences-timeline-connector {
+  opacity: 0.55;
+}
+
+.experiences-card {
+  flex: 1;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 250, 0.95) 100%);
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: 4px solid var(--imp-text-color, #2d2d2d);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.experiences-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-left-color: var(--imp-text-color, #2d2d2d);
+}
+
+.experiences-meta {
+  padding-right: 24px;
+}
+
+.experiences-period {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.experiences-company {
+  font-size: 1.05em;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.experiences-meta-icon {
+  font-size: 1.1em;
+  color: var(--imp-text-color, #2d2d2d);
+  flex-shrink: 0;
+}
+
+.experiences-role {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05em;
+  margin-bottom: 12px;
+  color: #252525;
+}
+
+.experiences-description {
+  color: #444;
+  font-size: 0.95em;
+  line-height: 1.6;
+  font-family: "Inter", sans-serif;
+}
+
+.experiences-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-top: 16px;
+}
+
+.experiences-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.82em;
+  font-weight: 500;
+  color: #333;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .experiences-timeline {
+    padding-left: 36px;
+  }
+  .experiences-timeline-track {
+    left: 17px;   /* center at 18px */
+    top: 24px;
+    bottom: 24px;
+  }
+  .experiences-timeline-node {
+    left: -21px;  /* 18 - 3 - 36 */
+    top: 18px;
+    width: 6px;
+    height: 6px;
+  }
+  .experiences-timeline-node-dot {
+    width: 1px;
+    height: 1px;
+  }
+  .experiences-timeline-connector {
+    left: -18px;
+    top: 20px;
+    width: 18px;
+  }
+  .experiences-card {
+    padding: 20px;
+  }
+  .experiences-meta {
+    padding-right: 0;
+    margin-bottom: 12px;
+  }
+  .experiences-period {
+    margin-bottom: 4px;
+  }
+}
+
 /* Quote / activity card */
 .quote-card-view {
   border: none !important;

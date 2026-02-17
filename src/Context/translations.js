@@ -335,6 +335,54 @@ const translations = {
     },
 
     /* ------------------------------------------------------------------ */
+    /*  Experiences / Clients                                              */
+    /* ------------------------------------------------------------------ */
+    experiences: {
+        title: {
+            en: <>Professional <strong className="purple">Experience</strong> & <strong className="purple">Clients</strong></>,
+            fr: <>Expériences <strong className="purple">professionnelles</strong> & <strong className="purple">clients</strong></>,
+        },
+        subtitle: {
+            en: "Key roles and collaborations.",
+            fr: "Principaux postes et collaborations.",
+        },
+        entries: {
+            en: [
+                {
+                    company: "Company / Client name",
+                    role: "Your role (e.g. Robotics Engineer, Consultant)",
+                    period: "2022 – Present",
+                    description: "Describe your missions, achievements and impact. You can use multiple sentences. Highlight key deliverables, technologies used, and results achieved.",
+                    tags: ["ROS2", "Python", "Architecture"],
+                },
+                {
+                    company: "Another company or client",
+                    role: "Previous role",
+                    period: "2020 – 2022",
+                    description: "Another experience description. Adapt the tags to match your stack.",
+                    tags: ["Machine Learning", "DevOps"],
+                },
+            ],
+            fr: [
+                {
+                    company: "Entreprise / Nom du client",
+                    role: "Votre poste (ex. Ingénieur Robotique, Consultant)",
+                    period: "2022 – Aujourd'hui",
+                    description: "Décrivez vos missions, réalisations et impact. Vous pouvez utiliser plusieurs phrases. Mettez en avant les livrables clés, technologies utilisées et résultats obtenus.",
+                    tags: ["ROS2", "Python", "Architecture"],
+                },
+                {
+                    company: "Autre entreprise ou client",
+                    role: "Poste précédent",
+                    period: "2020 – 2022",
+                    description: "Autre description d'expérience. Adaptez les tags à votre stack.",
+                    tags: ["Machine Learning", "DevOps"],
+                },
+            ],
+        },
+    },
+
+    /* ------------------------------------------------------------------ */
     /*  Projects                                                           */
     /* ------------------------------------------------------------------ */
     projects: {

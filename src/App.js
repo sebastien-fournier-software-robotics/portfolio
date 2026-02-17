@@ -8,6 +8,7 @@ import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import FindMeOn from "./components/FindMeOn";
 import Skills from "./components/Skills/Skills";
+import Experiences from "./components/Experiences/Experiences";
 import { LanguageProvider } from "./Context/LanguageContext";
 import "./style.css";
 import "./App.css";
@@ -31,14 +32,13 @@ function App() {
           containing block for position:fixed and causes the particles to
           glitch/slide with the content. */}
       <Particle />
-      <LanguageProvider>
+      <LanguageProvider navbar={<Navbar />}>
         <Preloader load={load} />
         <div className="App" id={load ? "no-scroll" : "scroll"}>
-          <Navbar />
           <Home />
           <About />
           <Skills />
-          <section id="experiences" style={{ minHeight: "50vh", padding: "80px 0" }} />
+          <Experiences />
           <Projects />
           <section id="education" style={{ minHeight: "50vh", padding: "80px 0" }} />
           <FindMeOn />
@@ -51,8 +51,8 @@ function App() {
 // Portfolio TODO list:
 // [x] : présentation + CV / Contact Me button(scroll to contact) + animation
 // [x] : About
-// TODO : Compétences + stack
-// TODO : Expériences / clients
+// [x] : Compétences + stack
+// [x] : Expériences / clients
 // TODO : Projets
 // TODO : Formation + (Certifications)
 // [x] : Contact Section : CTA + Liens : Mail / LinkedIn / GitHub

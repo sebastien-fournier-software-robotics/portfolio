@@ -1,12 +1,33 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { AiOutlineCalendar } from "react-icons/ai";
+import { AiOutlineCalendar, AiOutlineProject, AiOutlineCheckCircle, AiOutlineRocket, AiOutlineLineChart } from "react-icons/ai";
 import { FaBriefcase } from "react-icons/fa";
 import { useLanguage } from "../../Context/LanguageContext";
 
 function Experiences() {
   const { t } = useLanguage();
   const entries = t("experiences.entries") || [];
+
+  const renderBlock = (labelKey, IconComponent, items) => {
+    if (!items || (Array.isArray(items) && items.length === 0)) return null;
+    const list = Array.isArray(items) ? items : [items];
+    const label = t(`experiences.labels.${labelKey}`);
+    return (
+      <div key={labelKey} className={`experiences-block experiences-block--${labelKey}`}>
+        <div className="experiences-block-header">
+          <span className="experiences-block-icon-wrap">
+            <IconComponent className="experiences-block-icon" />
+          </span>
+          <span className="experiences-block-label">{label}</span>
+        </div>
+        <ul className="experiences-block-list">
+          {list.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   return (
     <section id="experiences" className="experiences-section" style={{ minHeight: "50vh", padding: "80px 0" }}>
@@ -36,7 +57,22 @@ function Experiences() {
                       <FaBriefcase className="experiences-meta-icon" />
                       <strong>{exp.role}</strong>
                     </div>
-                    <div className="experiences-description">{exp.description}</div>
+
+                    {exp.project && (
+                      <div className="experiences-block experiences-block--project">
+                        <div className="experiences-block-header">
+                          <span className="experiences-block-icon-wrap">
+                            <AiOutlineProject className="experiences-block-icon" />
+                          </span>
+                          <span className="experiences-block-label">{t("experiences.labels.project")}</span>
+                        </div>
+                        <p className="experiences-block-text">{exp.project}</p>
+                      </div>
+                    )}
+                    {renderBlock("missions", AiOutlineCheckCircle, exp.missions)}
+                    {renderBlock("achievements", AiOutlineRocket, exp.achievements)}
+                    {renderBlock("results", AiOutlineLineChart, exp.results)}
+
                     {exp.tags && exp.tags.length > 0 && (
                       <div className="experiences-tags">
                         {exp.tags.map((tag, i) => (

@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import FindMeOn from "./components/FindMeOn";
 import Skills from "./components/Skills/Skills";
 import Experiences from "./components/Experiences/Experiences";
+import Education from "./components/Education/Education";
 import { LanguageProvider } from "./Context/LanguageContext";
 import "./style.css";
 import "./App.css";
@@ -40,7 +41,7 @@ function App() {
           <Skills />
           <Experiences />
           <Projects />
-          <section id="education" style={{ minHeight: "50vh", padding: "80px 0" }} />
+          <Education />
           <FindMeOn />
           <Footer />
         </div>

@@ -322,20 +322,40 @@ const translations = {
             en: "Key roles and collaborations.",
             fr: "Principaux postes et collaborations.",
         },
+        labels: {
+            project: { en: "Project", fr: "Projet" },
+            missions: { en: "Missions", fr: "Missions" },
+            achievements: { en: "Key achievements", fr: "Réalisations marquantes" },
+            results: { en: "Results", fr: "Résultats" },
+        },
         entries: {
             en: [
                 {
                     company: "Company / Client name",
                     role: "Your role (e.g. Robotics Engineer, Consultant)",
                     period: "2022 – Present",
-                    description: "Describe your missions, achievements and impact. You can use multiple sentences. Highlight key deliverables, technologies used, and results achieved.",
+                    project: "Project name or context.",
+                    missions: [
+                        "Describe your main missions and responsibilities.",
+                        "Second mission or area of responsibility.",
+                    ],
+                    achievements: [
+                        "Key deliverable or notable achievement.",
+                        "Another concrete achievement.",
+                    ],
+                    results: [
+                        "Quantitative or qualitative result (e.g. performance gain, deployment success).",
+                    ],
                     tags: ["ROS2", "Python", "Architecture"],
                 },
                 {
                     company: "Another company or client",
                     role: "Previous role",
                     period: "2020 – 2022",
-                    description: "Another experience description. Adapt the tags to match your stack.",
+                    project: "Project context.",
+                    missions: ["Main mission description."],
+                    achievements: ["Main achievement."],
+                    results: ["Main result."],
                     tags: ["Machine Learning", "DevOps"],
                 },
             ],
@@ -344,15 +364,77 @@ const translations = {
                     company: "Entreprise / Nom du client",
                     role: "Votre poste (ex. Ingénieur Robotique, Consultant)",
                     period: "2022 – Aujourd'hui",
-                    description: "Décrivez vos missions, réalisations et impact. Vous pouvez utiliser plusieurs phrases. Mettez en avant les livrables clés, technologies utilisées et résultats obtenus.",
+                    project: "Nom du projet ou contexte.",
+                    missions: [
+                        "Décrivez vos principales missions et responsabilités.",
+                        "Deuxième mission ou domaine de responsabilité.",
+                    ],
+                    achievements: [
+                        "Livrable clé ou réalisation notable.",
+                        "Autre réalisation concrète.",
+                    ],
+                    results: [
+                        "Résultat quantitatif ou qualitatif (ex. gain de performance, mise en production réussie).",
+                    ],
                     tags: ["ROS2", "Python", "Architecture"],
                 },
                 {
                     company: "Autre entreprise ou client",
                     role: "Poste précédent",
                     period: "2020 – 2022",
-                    description: "Autre description d'expérience. Adaptez les tags à votre stack.",
+                    project: "Contexte du projet.",
+                    missions: ["Description de la mission principale."],
+                    achievements: ["Réalisation principale."],
+                    results: ["Résultat principal."],
                     tags: ["Machine Learning", "DevOps"],
+                },
+            ],
+        },
+    },
+
+    /* ------------------------------------------------------------------ */
+    /*  Education / Formation                                              */
+    /* ------------------------------------------------------------------ */
+    education: {
+        title: {
+            en: <>Academic <strong className="purple">Formation</strong> & <strong className="purple">Certifications</strong></>,
+            fr: <>Formation <strong className="purple">académique</strong> & <strong className="purple">certifications</strong></>,
+        },
+        subtitle: {
+            en: "Degrees, courses and certifications.",
+            fr: "Diplômes, formations et certifications.",
+        },
+        entries: {
+            en: [
+                {
+                    school: "School or University name",
+                    degree: "Degree / Certification (e.g. Engineering degree, Master)",
+                    period: "2018 – 2021",
+                    description: "Describe your degree, main courses, thesis or major projects. Highlight robotics, software, AI or relevant fields.",
+                    tags: ["Robotics", "Computer Vision", "Machine Learning"],
+                },
+                {
+                    school: "Another institution",
+                    degree: "Previous degree or certification",
+                    period: "2015 – 2018",
+                    description: "Another formation description. Adapt to your background.",
+                    tags: ["C++", "Python", "Embedded"],
+                },
+            ],
+            fr: [
+                {
+                    school: "École ou université",
+                    degree: "Diplôme / Certification (ex. diplôme d'ingénieur, Master)",
+                    period: "2018 – 2021",
+                    description: "Décrivez votre diplôme, les cours principaux, le mémoire ou les projets majeurs. Mettez en avant robotique, logiciel, IA ou domaines pertinents.",
+                    tags: ["Robotique", "Computer Vision", "Machine Learning"],
+                },
+                {
+                    school: "Autre établissement",
+                    degree: "Autre diplôme ou certification",
+                    period: "2015 – 2018",
+                    description: "Autre description de formation. Adaptez à votre parcours.",
+                    tags: ["C++", "Python", "Embedded"],
                 },
             ],
         },

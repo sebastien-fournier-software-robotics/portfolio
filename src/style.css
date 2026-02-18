@@ -2510,7 +2510,36 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
   letter-spacing: 0.04em;
   margin-bottom: 8px;
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+.experiences-period {
+  align-items: flex-start;
+}
+
+.experiences-meta-row--location {
+  align-items: flex-start;
+}
+
+.experiences-meta-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+  flex-shrink: 0;
+}
+
+.experiences-period-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 6px;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.experiences-period-end {
+  white-space: nowrap;
 }
 
 .experiences-meta-row:last-child {
@@ -2522,9 +2551,8 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 }
 
 .experiences-meta-icon {
-  font-size: 0.9em;
+  font-size: 1em;
   color: #6b7280;
-  flex-shrink: 0;
   opacity: 0.85;
 }
 
@@ -2568,6 +2596,35 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 }
 
 .experiences-content .experiences-block:first-of-type {
+  margin-top: 0;
+}
+
+.experiences-subproject {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.experiences-subproject:first-of-type {
+  margin-top: 18px;
+}
+
+.experiences-subproject-title {
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.experiences-subproject .experiences-block {
+  margin-top: 14px;
+}
+
+.experiences-subproject .experiences-block:first-of-type {
   margin-top: 0;
 }
 

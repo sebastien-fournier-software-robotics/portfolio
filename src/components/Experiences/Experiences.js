@@ -59,18 +59,21 @@ function ExperienceBlockHeader({ labelKey, Icon }) {
 }
 
 /**
- * Enveloppe les valeurs chiffrées (ex: 35%, 50%) dans un span pour le style results.
+ * Enveloppe la première valeur chiffrée (ex: 35%, 50 000) dans un span pour le style results.
+ * Gère les nombres avec séparateur de milliers (50 000) et les pourcentages (75%).
+ * Le regex évite de capturer les espaces de fin.
  */
 function formatResultWithNumbers(text) {
     if (typeof text !== "string") return text;
-    const parts = text.split(/(\d+%?)/g);
-    return parts.map((part, i) =>
-        /^\d+%?$/.test(part) ? (
-            <span key={i} className="experiences-result-number">{part}</span>
-        ) : (
-            part
-        )
-    );
+    const parts = text.split(/(\d+(?:\s\d{3})*(?:%)?)/g);
+    let firstNumberFound = false;
+    return parts.map((part, i) => {
+        if (/^\d+(?:\s\d{3})*(?:%)?$/.test(part) && !firstNumberFound) {
+            firstNumberFound = true;
+            return <span key={i} className="experiences-result-number">{part}</span>;
+        }
+        return part;
+    });
 }
 
 function ExperienceListBlock({ labelKey, Icon, items }) {
@@ -102,6 +105,54 @@ function ExperienceProjectBlock({ project }) {
     );
 }
 
+/**
+ * Parse period string "start – end" or "start - end" into { start, end, separator }.
+ * Falls back to full period if no separator found.
+ */
+function parsePeriod(period) {
+    if (!period || typeof period !== "string") return { start: period, end: null, separator: null };
+    const match = period.match(/^(.+?)\s+[–-]\s+(.+)$/);
+    if (match) {
+        return { start: match[1].trim(), end: match[2].trim(), separator: " – " };
+    }
+    return { start: period, end: null, separator: null };
+}
+
+function ExperiencePeriod({ period }) {
+    const { start, end, separator } = parsePeriod(period);
+    if (!start) return null;
+
+    return (
+        <div className="experiences-period">
+            <span className="experiences-meta-icon-wrap">
+                <AiOutlineCalendar className="experiences-meta-icon" />
+            </span>
+            <div className="experiences-period-content">
+                <span className="experiences-period-start">{start}</span>
+                {end && <span className="experiences-period-end">{separator}{end}</span>}
+            </div>
+        </div>
+    );
+}
+
+function ExperienceSubProjectBlock({ subProject }) {
+    if (!subProject) return null;
+
+    return (
+        <div className="experiences-subproject">
+            <div className="experiences-subproject-title">{subProject.title}</div>
+            {LIST_BLOCKS.map(({ labelKey, Icon, dataKey }) => (
+                <ExperienceListBlock
+                    key={labelKey}
+                    labelKey={labelKey}
+                    Icon={Icon}
+                    items={subProject[dataKey]}
+                />
+            ))}
+        </div>
+    );
+}
+
 function ExperienceCard({ exp }) {
     const { t } = useLanguage();
     const duration = exp.isCurrent && exp.startDate
@@ -125,19 +176,20 @@ function ExperienceCard({ exp }) {
 
             {/* Row 2+ : period/duration/location | project/missions/achievements/results/tags */}
             <div className="experiences-grid-col1 experiences-grid-row2 experiences-meta">
-                <div className="experiences-period">
-                    <AiOutlineCalendar className="experiences-meta-icon" />
-                    <span>{exp.period}</span>
-                </div>
+                <ExperiencePeriod period={exp.period} />
                 {duration && (
                     <div className="experiences-meta-row">
-                        <AiOutlineClockCircle className="experiences-meta-icon" />
+                        <span className="experiences-meta-icon-wrap">
+                            <AiOutlineClockCircle className="experiences-meta-icon" />
+                        </span>
                         <span>{duration}</span>
                     </div>
                 )}
                 {exp.location && (
-                    <div className="experiences-meta-row">
-                        <AiOutlineEnvironment className="experiences-meta-icon" />
+                    <div className="experiences-meta-row experiences-meta-row--location">
+                        <span className="experiences-meta-icon-wrap">
+                            <AiOutlineEnvironment className="experiences-meta-icon" />
+                        </span>
                         <span>{exp.location}</span>
                     </div>
                 )}
@@ -145,14 +197,20 @@ function ExperienceCard({ exp }) {
             <div className="experiences-grid-col2 experiences-grid-row2 experiences-content">
                 <ExperienceProjectBlock project={exp.project} />
 
-                {LIST_BLOCKS.map(({ labelKey, Icon, dataKey }) => (
-                    <ExperienceListBlock
-                        key={labelKey}
-                        labelKey={labelKey}
-                        Icon={Icon}
-                        items={exp[dataKey]}
-                    />
-                ))}
+                {exp.projects ? (
+                    exp.projects.map((subProject, idx) => (
+                        <ExperienceSubProjectBlock key={idx} subProject={subProject} />
+                    ))
+                ) : (
+                    LIST_BLOCKS.map(({ labelKey, Icon, dataKey }) => (
+                        <ExperienceListBlock
+                            key={labelKey}
+                            labelKey={labelKey}
+                            Icon={Icon}
+                            items={exp[dataKey]}
+                        />
+                    ))
+                )}
 
                 {exp.tags?.length > 0 && (
                     <div className="experiences-block experiences-block--tools">

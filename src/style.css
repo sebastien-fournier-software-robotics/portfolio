@@ -1926,20 +1926,6 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
     font-size: 0.85em;
   }
 
-  .skills-operational {
-    margin-top: 20px;
-    padding: 20px 18px;
-  }
-
-  .skills-operational-title {
-    font-size: 0.95rem !important;
-    letter-spacing: 0.12em;
-  }
-
-  .skills-operational-tag {
-    font-size: 0.82em;
-    padding: 6px 12px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -2189,59 +2175,6 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 .skills-category-card:hover .skills-tech-badge {
   background: rgba(255, 255, 255, 0.95);
   border-color: rgba(0, 0, 0, 0.12);
-}
-
-.skills-operational {
-  margin-top: 28px;
-  padding: 26px 28px;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  border-top: 3px solid rgba(45, 45, 45, 0.2);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-}
-
-.skills-operational:hover {
-  background: rgba(255, 255, 255, 0.85);
-  border-top-color: var(--imp-text-color, #2d2d2d);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-
-.skills-operational-title {
-  color: #252525;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 18px;
-  padding-bottom: 14px;
-  font-family: "Space Grotesk", sans-serif;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.skills-operational-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-}
-
-.skills-operational-tag {
-  display: inline-block;
-  padding: 8px 16px;
-  font-size: 0.9em;
-  font-weight: 500;
-  color: #333;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.skills-operational-tag:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(0, 0, 0, 0.14);
-  transform: translateY(-1px);
 }
 
 /* -----------------------------------------------------------

@@ -141,7 +141,7 @@ function Skills() {
           </Row>
         </div>
 
-        {/* Skill categories + Operational */}
+        {/* Skill categories */}
         <div className="skills-categories-wrapper">
           <h3 className="skills-categories-title">{t("skills.categoriesTitle")}</h3>
           <Row className="skills-categories">
@@ -179,16 +179,6 @@ function Skills() {
               );
             })}
           </Row>
-
-          {/* Opérationnel, gestion & accompagnement */}
-          <div className="skills-operational">
-            <h3 className="skills-operational-title">{t("skills.operationalTitle")}</h3>
-            <div className="skills-operational-tags">
-              {(t("skills.operationalItems") || []).map((point, i) => (
-                <span key={i} className="skills-operational-tag">{point}</span>
-              ))}
-            </div>
-          </div>
         </div>
       </Container>
     </section>

@@ -262,30 +262,6 @@ const translations = {
                 tech: ["Agile", "Scrum", "Facilitation", "Roadmap"],
             },
         },
-        operationalTitle: {
-            en: "Operations, management & support",
-            fr: "Opérationnel, gestion & accompagnement",
-        },
-        operationalItems: {
-            en: [
-                "Software tools and electronic board prototyping",
-                "System tuning",
-                "Technical support and training",
-                "Study and specification writing",
-                "Quoting and project management",
-                "Technology watch",
-                "Coordination and facilitation",
-            ],
-            fr: [
-                "Prototypage d'outils software et de carte électronique",
-                "Réglage systèmes",
-                "Support technique et formation",
-                "Rédaction d'études et spécifications",
-                "Chiffrage et Gestion de projets",
-                "Veille technologique",
-                "Coordination et animation",
-            ],
-        },
     },
 
     /* ------------------------------------------------------------------ */

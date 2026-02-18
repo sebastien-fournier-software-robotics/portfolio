@@ -13,6 +13,33 @@ import {
 import { FaBriefcase } from "react-icons/fa";
 import { useLanguage } from "../../Context/LanguageContext";
 
+/**
+ * Calcule la durée entre startDate (YYYY-MM) et aujourd'hui.
+ * Retourne une chaîne formatée selon la langue (ex: "9 mois", "2 ans 3 mois").
+ */
+function formatDurationFromStart(startDateStr, t) {
+    const [year, month] = startDateStr.split("-").map(Number);
+    const start = new Date(year, month - 1, 1);
+    const now = new Date();
+    let months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth()) + 1;
+    months = Math.max(1, months);
+
+    const years = Math.floor(months / 12);
+    const remainingMonths = months % 12;
+
+    const fmt = (key) => t(`experiences.durationFormat.${key}`);
+
+    if (years === 0) {
+        return remainingMonths <= 1 ? `1 ${fmt("month")}` : `${remainingMonths} ${fmt("months")}`;
+    }
+    if (remainingMonths === 0) {
+        return years === 1 ? `1 ${fmt("year")}` : `${years} ${fmt("years")}`;
+    }
+    const yPart = years === 1 ? `1 ${fmt("year")}` : `${years} ${fmt("years")}`;
+    const mPart = remainingMonths === 1 ? `1 ${fmt("month")}` : `${remainingMonths} ${fmt("months")}`;
+    return `${yPart} ${mPart}`;
+}
+
 const LIST_BLOCKS = [
     { labelKey: "missions", Icon: AiOutlineCheckCircle, dataKey: "missions" },
     { labelKey: "achievements", Icon: AiOutlineRocket, dataKey: "achievements" },
@@ -61,6 +88,11 @@ function ExperienceProjectBlock({ project }) {
 }
 
 function ExperienceCard({ exp }) {
+    const { t } = useLanguage();
+    const duration = exp.isCurrent && exp.startDate
+        ? formatDurationFromStart(exp.startDate, t)
+        : exp.duration;
+
     return (
         <div className="experiences-card">
             <Row className="align-items-start">
@@ -71,10 +103,10 @@ function ExperienceCard({ exp }) {
                         <AiOutlineCalendar className="experiences-meta-icon" />
                         <span>{exp.period}</span>
                     </div>
-                    {exp.duration && (
+                    {duration && (
                         <div className="experiences-meta-row">
                             <AiOutlineClockCircle className="experiences-meta-icon" />
-                            <span>{exp.duration}</span>
+                            <span>{duration}</span>
                         </div>
                     )}
                     {exp.location && (

@@ -332,13 +332,20 @@ const translations = {
             duration: { en: "Duration", fr: "Durée cumulée" },
             location: { en: "Location", fr: "Lieu" },
         },
+        durationFormat: {
+            month: { en: "month", fr: "mois" },
+            months: { en: "months", fr: "mois" },
+            year: { en: "year", fr: "an" },
+            years: { en: "years", fr: "ans" },
+        },
         entries: {
             en: [
                 {
                     company: "Freelance",
                     role: "Your role (e.g. Robotics Engineer, Consultant)",
                     period: "2022 – Present",
-                    duration: "2 years",
+                    startDate: "2022-01",
+                    isCurrent: true,
                     location: "Remote / Paris",
                     project: "Project name or context.",
                     missions: [
@@ -372,7 +379,8 @@ const translations = {
                     company: "Freelance",
                     role: "Ingénieur en robotique",
                     period: "mai 2025 – Aujourd'hui",
-                    duration: "2 ans",
+                    startDate: "2025-05",
+                    isCurrent: true,
                     location: "Télétravail / Paris",
                     project: "Nom du projet ou contexte.",
                     missions: [

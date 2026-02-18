@@ -10,7 +10,6 @@ import {
     AiOutlineEnvironment,
     AiOutlineTool,
 } from "react-icons/ai";
-import { FaBriefcase } from "react-icons/fa";
 import { useLanguage } from "../../Context/LanguageContext";
 
 /**
@@ -121,10 +120,7 @@ function ExperienceCard({ exp }) {
                 </div>
             </div>
             <div className="experiences-grid-col2 experiences-grid-row1">
-                <div className="experiences-role">
-                    <FaBriefcase className="experiences-meta-icon" />
-                    <strong>{exp.role}</strong>
-                </div>
+                <div className="experiences-role">{exp.role}</div>
             </div>
 
             {/* Row 2+ : period/duration/location | project/missions/achievements/results/tags */}

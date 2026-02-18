@@ -324,7 +324,7 @@ const translations = {
             fr: "Principaux postes et collaborations.",
         },
         labels: {
-            project: { en: "Project / Context", fr: "Projet / Contexte" },
+            project: { en: "Context", fr: "Contexte" },
             missions: { en: "Missions", fr: "Missions" },
             achievements: { en: "Key achievements", fr: "Réalisations" },
             results: { en: "Results", fr: "Résultats" },

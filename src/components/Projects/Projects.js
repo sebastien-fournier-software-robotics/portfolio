@@ -2,12 +2,12 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import { useLanguage } from "../../context/LanguageContext";
-import leaf from "../../Assets/Projects/leaf.png";
-import emotion from "../../Assets/Projects/emotion.png";
-import editor from "../../Assets/Projects/codeEditor.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
+import leaf from "../../assets/Projects/leaf.png";
+import emotion from "../../assets/Projects/emotion.png";
+import editor from "../../assets/Projects/codeEditor.png";
+import chatify from "../../assets/Projects/chatify.png";
+import suicide from "../../assets/Projects/suicide.png";
+import bitsOfCode from "../../assets/Projects/blog.png";
 
 function Projects() {
   const { t } = useLanguage();

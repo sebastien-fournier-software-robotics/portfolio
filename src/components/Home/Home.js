@@ -8,7 +8,7 @@ import {
 } from "react-icons/ai";
 import { MdOutlineEmail } from "react-icons/md";
 import { useLanguage } from "../../context/LanguageContext";
-import pdf from "../../Assets/../Assets/CV_ingenieur_robotique_vision.pdf";
+import pdf from "../../assets/CV_ingenieur_robotique_vision.pdf";
 
 function Home() {
     const { t } = useLanguage();

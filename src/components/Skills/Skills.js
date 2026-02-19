@@ -30,16 +30,16 @@ import {
 import { useLanguage } from "../../context/LanguageContext";
 import translations from "../../context/translations";
 
-import Nav2Icon from "../../Assets/TechIcons/Nav2.png";
-import PythonIcon from "../../Assets/TechIcons/Python.svg";
-import OpenCVIcon from "../../Assets/TechIcons/OpenCV.svg";
-import PyTestIcon from "../../Assets/TechIcons/PyTest.svg";
-import HuggingFaceIcon from "../../Assets/TechIcons/HuggingFace.svg";
-import PlotJugglerIcon from "../../Assets/TechIcons/PlotJuggler.svg";
-import FoxGloveIcon from "../../Assets/TechIcons/FoxGlove.svg";
-import GoogleIcon from "../../Assets/TechIcons/Google.svg";
-import GazeboIcon from "../../Assets/TechIcons/Gazebo.svg";
-import TensorRTIcon from "../../Assets/TechIcons/TensorRT.svg";
+import Nav2Icon from "../../assets/TechIcons/Nav2.png";
+import PythonIcon from "../../assets/TechIcons/Python.svg";
+import OpenCVIcon from "../../assets/TechIcons/OpenCV.svg";
+import PyTestIcon from "../../assets/TechIcons/PyTest.svg";
+import HuggingFaceIcon from "../../assets/TechIcons/HuggingFace.svg";
+import PlotJugglerIcon from "../../assets/TechIcons/PlotJuggler.svg";
+import FoxGloveIcon from "../../assets/TechIcons/FoxGlove.svg";
+import GoogleIcon from "../../assets/TechIcons/Google.svg";
+import GazeboIcon from "../../assets/TechIcons/Gazebo.svg";
+import TensorRTIcon from "../../assets/TechIcons/TensorRT.svg";
 
 const DEFAULT_BADGE_COLOR = "#444";
 

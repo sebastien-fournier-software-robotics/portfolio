@@ -1,9 +1,9 @@
 import React from "react";
-import geHealthcare from "../../Assets/Customers/ge-healthcare.png";
-import echosens from "../../Assets/Customers/echosens.png";
-import navya from "../../Assets/Customers/navya.png";
-import tdk from "../../Assets/Customers/tdk-corporation.png";
-import macnica from "../../Assets/Customers/macnica.png";
+import geHealthcare from "../../assets/Customers/ge-healthcare.png";
+import echosens from "../../assets/Customers/echosens.png";
+import navya from "../../assets/Customers/navya.png";
+import tdk from "../../assets/Customers/tdk-corporation.png";
+import macnica from "../../assets/Customers/macnica.png";
 
 const CUSTOMERS = [
   { name: "GE Healthcare", logo: geHealthcare },

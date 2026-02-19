@@ -2277,6 +2277,11 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
     font-size: 0.6em;
     padding: 2px 6px;
   }
+
+.experiences-type-badge {
+  font-size: 0.6em;
+  padding: 2px 6px;
+}
 }
 
 .experiences-subtitle {
@@ -2561,6 +2566,10 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 }
 
 .experiences-role {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   font-size: 1.05em;
   font-weight: 600;
   color: var(--imp-text-color, #2d2d2d);
@@ -2568,6 +2577,30 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   line-height: 1.35;
+}
+
+.experiences-type-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 0.55em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.experiences-type-badge--consultant {
+  color: #5b21b6;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+.experiences-type-badge--stage {
+  color: #0284c7;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .experiences-description {
@@ -2612,12 +2645,18 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
 }
 
 .experiences-subproject-title {
-  font-size: 0.95em;
-  font-weight: 700;
-  color: #374151;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #4b5563;
   margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 10px 14px;
+  padding-left: 16px;
+  border-radius: 8px;
+  border-left: 3px solid rgba(107, 114, 128, 0.35);
+  background: rgba(107, 114, 128, 0.06);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.35;
 }
 
 .experiences-subproject .experiences-block {
@@ -2660,7 +2699,7 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   color: #6d28d9;
 }
 
-.experiences-block--tools:hover {
+.experiences-block--tags:hover {
   border-left-color: rgba(217, 119, 6, 0.4);
 }
 
@@ -2704,25 +2743,25 @@ a, button, [role="button"], .btn, [data-bs-toggle], .nav-link, .navbar-toggler {
   background: rgba(124, 58, 237, 0.1);
 }
 
-.experiences-block--tools:hover .experiences-block-icon-wrap {
+.experiences-block--tags:hover .experiences-block-icon-wrap {
   background: rgba(245, 158, 11, 0.1);
 }
 
-.experiences-block--tools .experiences-block-icon {
+.experiences-block--tags .experiences-block-icon {
   color: #6b7280;
   transition: color 0.2s ease;
 }
 
-.experiences-block--tools:hover .experiences-block-icon {
+.experiences-block--tags:hover .experiences-block-icon {
   color: #d97706;
 }
 
-.experiences-block--tools .experiences-tags {
+.experiences-block--tags .experiences-tags {
   margin-top: 10px;
   margin-bottom: 0;
 }
 
-.experiences-block--tools .experiences-block-header {
+.experiences-block--tags .experiences-block-header {
   margin-bottom: 12px;
 }
 

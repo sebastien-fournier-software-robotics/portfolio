@@ -8,8 +8,8 @@ import {
     AiOutlineLineChart,
     AiOutlineClockCircle,
     AiOutlineEnvironment,
-    AiOutlineTool,
 } from "react-icons/ai";
+import { FaTag } from "react-icons/fa";
 import { useLanguage } from "../../Context/LanguageContext";
 
 /**
@@ -59,16 +59,17 @@ function ExperienceBlockHeader({ labelKey, Icon }) {
 }
 
 /**
- * Enveloppe la première valeur chiffrée (ex: 35%, 50 000) dans un span pour le style results.
- * Gère les nombres avec séparateur de milliers (50 000) et les pourcentages (75%).
- * Le regex évite de capturer les espaces de fin.
+ * Enveloppe la première valeur chiffrée (sans le séparateur "·") dans un span pour le style results.
+ * Gère les nombres avec séparateur de milliers, pourcentages, unités (h) et unités avec espace (milli-seconde).
  */
 function formatResultWithNumbers(text) {
     if (typeof text !== "string") return text;
-    const parts = text.split(/(\d+(?:\s\d{3})*(?:%)?)/g);
+    const splitPattern = /(\d+(?:\s\d{3})*(?:%|[a-zA-Z])?(?:\s+[\w-]+)?)(\s*·)/;
+    const numberTest = /^\d+(?:\s\d{3})*(?:%|[a-zA-Z])?(?:\s+[\w-]+)?$/;
+    const parts = text.split(splitPattern);
     let firstNumberFound = false;
     return parts.map((part, i) => {
-        if (/^\d+(?:\s\d{3})*(?:%)?$/.test(part) && !firstNumberFound) {
+        if (numberTest.test(part) && !firstNumberFound) {
             firstNumberFound = true;
             return <span key={i} className="experiences-result-number">{part}</span>;
         }
@@ -149,6 +150,18 @@ function ExperienceSubProjectBlock({ subProject }) {
                     items={subProject[dataKey]}
                 />
             ))}
+            {subProject.tags?.length > 0 && (
+                <div className="experiences-block experiences-block--tags">
+                    <ExperienceBlockHeader labelKey="tags" Icon={FaTag} />
+                    <div className="experiences-tags">
+                        {subProject.tags.map((tag, i) => (
+                            <span key={i} className="experiences-tag">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
@@ -171,7 +184,14 @@ function ExperienceCard({ exp }) {
                 </div>
             </div>
             <div className="experiences-grid-col2 experiences-grid-row1">
-                <div className="experiences-role">{exp.role}</div>
+                <div className="experiences-role">
+                    {exp.role}
+                    {exp.experienceType && (
+                        <span className={`experiences-type-badge experiences-type-badge--${exp.experienceType}`}>
+                            {t(`experiences.experienceTypeBadges.${exp.experienceType}`)}
+                        </span>
+                    )}
+                </div>
             </div>
 
             {/* Row 2+ : period/duration/location | project/missions/achievements/results/tags */}
@@ -213,8 +233,8 @@ function ExperienceCard({ exp }) {
                 )}
 
                 {exp.tags?.length > 0 && (
-                    <div className="experiences-block experiences-block--tools">
-                        <ExperienceBlockHeader labelKey="tools" Icon={AiOutlineTool} />
+                    <div className="experiences-block experiences-block--tags">
+                        <ExperienceBlockHeader labelKey="tags" Icon={FaTag} />
                         <div className="experiences-tags">
                             {exp.tags.map((tag, i) => (
                                 <span key={i} className="experiences-tag">

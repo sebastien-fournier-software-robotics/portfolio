@@ -965,7 +965,7 @@ const translations = {
                 },
                 {
                     school: "University of Strathclyde",
-                    degree: "Master of Engineering - MEng, Robotics, Networks and Electronics Engineering",
+                    degree: "Master of Engineering - Robotics, Networks and Electronics Engineering",
                     period: "Sept. 2017 – Aug. 2018",
                     description: "Mention \"International Studies\".",
                     tags: ["Robotics", "Networks", "Electronics"],
@@ -987,7 +987,7 @@ const translations = {
                 },
                 {
                     school: "University of Strathclyde",
-                    degree: "Master of Engineering - MEng, Ingénierie robotique, réseaux et électronique",
+                    degree: "Master of Engineering - Ingénierie robotique, réseaux et électronique",
                     period: "sept. 2017 – août 2018",
                     description: "Mention \"International Studies\".",
                     tags: ["Robotique", "Réseaux", "Électronique"],

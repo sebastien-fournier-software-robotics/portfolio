@@ -36,17 +36,21 @@ const translations = {
     typewriter: {
         strings: {
             en: [
-                "Robotics Engineer",
-                "Machine Learning & AI Expert",
-                "Freelancer",
+                "Software Robotics Engineer",
+                "Computer Vision",
+                "Machine Learning",
+                "Edge Computing",
                 "Software Architect",
+                "Freelancer",
                 "Open Source Contributor",
             ],
             fr: [
-                "Ingénieur Robotique",
-                "Expert Machine Learning & IA",
-                "Freelance",
+                "Ingénieur Robotique Logicielle",
+                "Computer Vision",
+                "Machine Learning",
+                "Edge Computing",
                 "Architecte Logiciel",
+                "Freelance",
                 "Contributeur Open Source",
             ],
         },
@@ -61,18 +65,23 @@ const translations = {
             fr: "À Propos",
         },
         subtitle: {
-            en: "« Who am I? »",
-            fr: "« Qui suis-je ? »",
+            en: "« Benefit from an expertise in Robotics, Computer Vision and Software. »",
+            fr: "« Bénéficiez d'une expertise en Robotique, Computer Vision et Logiciel. »",
         },
         body: {
             en: (
                 <>
-                    Hybrid Robotics / Software engineer with 6 years of experience
-                    in healthcare, industry, and transportation sectors, I turn
-                    complex concepts into high-performance systems. At the
-                    intersection of software architecture, advanced robotics, and
-                    embedded intelligence, I work to ensure that technological
-                    innovation translates into reliable operational reality.
+                    From strategic framing to field deployment and observability of your systems,
+                    I support all stages of your project lifecycle at the intersection of software
+                    architecture, advanced robotics, and embedded intelligence.
+                    <br /><br />
+                    Autonomous robotics, perception, and computer vision are the disruptive
+                    technologies redefining many standards today. I don&apos;t just build theoretical
+                    prototypes: I build robust, maintainable, and high-performance systems capable
+                    of facing real-world constraints.
+                    <br /><br />
+                    My name is Sébastien Fournier. I am a software robotics engineer and architect,
+                    passionate about autonomous navigation, embedded AI, and technical excellence.
                     <br /><br />
                     <strong>My various roles</strong>
                     <ul>
@@ -107,13 +116,20 @@ const translations = {
             ),
             fr: (
                 <>
-                    Ingénieur au profil hybride Robotique / Logiciel avec 6 ans d&apos;expérience
-                    dans les secteurs de la santé, de l&apos;industrie et des transports,
-                    je transforme des concepts complexes en systèmes performants. À
-                    l&apos;intersection de l&apos;architecture logicielle, de la robotique
-                    avancée et de l&apos;intelligence embarquée, j&apos;interviens pour
-                    garantir que l&apos;innovation technologique se traduise par une
-                    réalité opérationnelle fiable.
+                    Du cadrage stratégique jusqu&apos;au déploiement sur le terrain et à
+                    l&apos;observabilité de vos systèmes, j&apos;interviens sur toutes les étapes
+                    du cycle de vie de vos projets à l&apos;intersection de l&apos;architecture
+                    logicielle, de la robotique avancée et de l&apos;intelligence embarquée.
+                    <br /><br />
+                    La robotique autonome, la perception et la vision par ordinateur sont les
+                    technologies de rupture qui redéfinissent aujourd&apos;hui de nombreux standards.
+                    Je ne crée pas seulement des prototypes théoriques : je bâtis des systèmes
+                    robustes, maintenables et performants, capables d&apos;affronter les contraintes
+                    du monde réel.
+                    <br /><br />
+                    Je m&apos;appelle Sébastien Fournier. Je suis ingénieur en robotique logicielle
+                    et architecte, passionné par la navigation autonome, l&apos;IA embarquée et
+                    l&apos;excellence technique.
                     <br /><br />
                     <strong>Mes différentes casquettes</strong>
                     <ul>
@@ -165,31 +181,31 @@ const translations = {
         },
         valuePillars: {
             delivery: {
-                title: { en: "Deliver", fr: "Livrer" },
+                title: { en: "Pragmatism", fr: "Pragmatisme" },
                 description: {
                     en: "Meet your deadlines, clear the backlog, deliver the results.",
                     fr: "Respectez vos deadlines, dépilez le backlog, livrez les résultats.",
                 },
             },
             leadership: {
-                title: { en: "Facilitate", fr: "Animer" },
+                title: { en: "Collective intelligence", fr: "Intelligence collective" },
                 description: {
                     en: "Foster communication and collaboration across disciplines.",
-                    fr: "Favoriser la communication et la collaboration entre métiers.",
-                },
-            },
-            expertise: {
-                title: { en: "Drive", fr: "Porter" },
-                description: {
-                    en: "End-to-end expertise on your projects, from design to deployment.",
-                    fr: "Une expertise complète sur vos projets, de la conception au déploiement.",
+                    fr: "Animez l’équipe. Favorisez l’échange entre les métiers.",
                 },
             },
             knowledge: {
-                title: { en: "Transfer", fr: "Transmettre" },
+                title: { en: "Knowledge transfer", fr: "Transmission" },
                 description: {
                     en: "Preserve expertise and knowledge.",
                     fr: "Conservez le savoir-faire et les connaissances.",
+                },
+            },
+            expertise: {
+                title: { en: "Systemic approach", fr: "Approche systémique" },
+                description: {
+                    en: "End-to-end expertise on your projects, from design to deployment.",
+                    fr: "Une expertise complète sur vos projets, de la conception au déploiement.",
                 },
             },
         },
@@ -209,16 +225,16 @@ const translations = {
             robotics: {
                 title: { en: "Robotics", fr: "Robotique" },
                 description: {
-                    en: "Navigation and control, sensor fusion, 2D/3D localization, mapping, path planning, obstacle detection and avoidance.",
-                    fr: "Navigation et contrôle, fusion de capteurs, localisation 2D/3D, mapping, planification de trajectoires, détection et évitement d'obstacles.",
+                    en: "Navigation and control, sensor fusion, 2D/3D localization and mapping, path planning, obstacle detection and avoidance.",
+                    fr: "Navigation et contrôle, fusion de capteurs, localisation et cartographie 2D/3D, planification de trajectoires, détection et évitement d'obstacles.",
                 },
                 tech: ["ROS2", "Nav2", "SLAM Toolbox", "RTAB-Map", "Cartographer"],
             },
             computerVision: {
                 title: { en: "Computer Vision & Edge\u00A0AI", fr: "Computer Vision & Edge\u00A0AI" },
                 description: {
-                    en: "Train, integrate, optimize and industrialize your perception / machine learning pipelines.",
-                    fr: "Entraîner, intégrer, optimiser, industrialiser vos pipelines de perception / machine learning.",
+                    en: "Optimization and industrialization of your perception and machine learning pipelines on embedded targets.",
+                    fr: "Optimisation et industrialisation de vos pipelines de perception et Machine Learning sur cibles embarquées.",
                 },
                 tech: ["NVIDIA Jetson", "OpenCV", "PyTorch", "TensorFlow", "HuggingFace", "TensorRT"],
             },
@@ -262,52 +278,6 @@ const translations = {
                 },
                 tech: ["Agile", "Scrum", "Facilitation", "Roadmap"],
             },
-        },
-    },
-
-    /* ------------------------------------------------------------------ */
-    /*  AboutCard                                                          */
-    /* ------------------------------------------------------------------ */
-    aboutCard: {
-        intro: {
-            en: (
-                <>
-                    Hi everyone! I'm <span className="purple">Sébastien Fournier</span>{" "}
-                    from <span className="purple">France</span>.
-                </>
-            ),
-            fr: (
-                <>
-                    Bonjour à tous ! Je suis <span className="purple">Sébastien Fournier</span>{" "}
-                    originaire de <span className="purple">France</span>.
-                </>
-            ),
-        },
-        job: {
-            en: (
-                <>
-                    I'm currently working as a{" "}
-                    <span className="purple">Software Developer</span>.
-                </>
-            ),
-            fr: (
-                <>
-                    Je travaille actuellement en tant que{" "}
-                    <span className="purple">développeur logiciel</span>.
-                </>
-            ),
-        },
-        activities: {
-            en: "Outside of coding, I love engaging in activities that keep me creative and inspired:",
-            fr: "En dehors du code, j'adore m'adonner à des activités qui stimulent ma créativité et mon inspiration :",
-        },
-        activityList: {
-            en: ["Playing Games 🎮", "Writing Tech Blogs ✍️", "Traveling and Exploring New Places 🌍"],
-            fr: ["Jouer aux jeux vidéo 🎮", "Écrire des articles tech ✍️", "Voyager et découvrir de nouveaux endroits 🌍"],
-        },
-        quote: {
-            en: '"Strive to build things that make a difference!"',
-            fr: '"Efforçons-nous de créer des choses qui font la différence !"',
         },
     },
 
@@ -703,7 +673,7 @@ const translations = {
                 },
                 {
                     company: "Navya Mobility",
-                    role: "Chef de projets techniques",
+                    role: "Chef de projets robotiques",
                     period: "mai 2024 - août 2024",
                     duration: "4 mois",
                     location: "Villeurbanne, France",
@@ -770,8 +740,9 @@ const translations = {
                     tags: ["C++", "Architecture de solutions logicielles", "Tests unitaires", "Tests fonctionnels", "SonarQube", "Langage Gherkin", "Computer Vision", "Traitement numérique des images", "DICOM", "DDS", "Git", "Linux"],
                 },
                 {
-                    company: "Up Technologies - Bureau d'Étude",
-                    role: "Ingénieur robotique et chef de projet",
+                    company: "Up Technologies",
+                    role: "Ingénieur en robotique",
+                    experienceType: "consultant",
                     period: "mars 2023 - août 2023",
                     duration: "6 mois",
                     location: "Lyon, France",
@@ -896,7 +867,7 @@ const translations = {
                 },
                 {
                     company: "Störk-Tronic",
-                    role: "Ingénieur recherche et développement & Product Owner",
+                    role: "Ingénieur recherche et développement logiciels & Product Owner",
                     period: "octobre 2018 - février 2021",
                     duration: "2 ans 5 mois",
                     location: "Lyon, France & Stuttgart, Allemagne",

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useCallback, useMemo, useRef } from "react";
+import React, { createContext, useState, useContext, useCallback, useMemo, useRef, useEffect } from "react";
 import translations from "./translations";
 
 const LanguageContext = createContext();
@@ -9,15 +9,48 @@ const LanguageContext = createContext();
  */
 const EXIT_MS = 200;
 
+/** Section ids used in the app (must match section element ids). */
+const SECTION_IDS = ["home", "about", "skills", "experiences", "project", "education", "contact"];
+
+/**
+ * Tolerance (px): if scroll is just above a section top (e.g. after a previous restore),
+ * still treat as that section so the 2nd toggle works.
+ */
+const SECTION_TOP_TOLERANCE = 8;
+
+/**
+ * Returns the section containing the current scroll position, plus offset from that section's top.
+ * So we can restore "same place" when content height changes (e.g. FR vs EN).
+ * Uses a small tolerance above section top so repeated toggles (e.g. on Formations) stay correct.
+ */
+function getScrollRestoreState() {
+  const scrollY = window.scrollY;
+  for (const id of SECTION_IDS) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    const bottom = top + el.offsetHeight;
+    if (scrollY >= top - SECTION_TOP_TOLERANCE && scrollY < bottom) {
+      const offsetInSection = Math.max(0, scrollY - top);
+      return { sectionId: id, offsetInSection };
+    }
+  }
+  return { scrollY };
+}
+
 export function LanguageProvider({ navbar, children }) {
   const [language, setLanguage] = useState("fr");
   /** "idle" | "exit" | "enter" */
   const [phase, setPhase] = useState("idle");
   const timerRef = useRef(null);
+  /** { sectionId, offsetInSection } | { scrollY } to restore after language toggle. */
+  const scrollRestoreRef = useRef(null);
 
   const toggleLanguage = useCallback(() => {
     /* Prevent double-toggling while an animation is in flight. */
     if (timerRef.current) return;
+
+    scrollRestoreRef.current = getScrollRestoreState();
 
     /* Phase 1 — slide + fade old content out */
     setPhase("exit");
@@ -38,6 +71,29 @@ export function LanguageProvider({ navbar, children }) {
       });
     }, EXIT_MS);
   }, []);
+
+  /* Restore scroll after phase returns to "idle" (DOM has been updated with new language). */
+  useEffect(() => {
+    if (phase !== "idle" || scrollRestoreRef.current === null) return;
+    const saved = scrollRestoreRef.current;
+    scrollRestoreRef.current = null;
+
+    const restore = () => {
+      if ("sectionId" in saved) {
+        const el = document.getElementById(saved.sectionId);
+        if (el) {
+          const sectionTop = el.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo(0, sectionTop + saved.offsetInSection);
+          return;
+        }
+      }
+      window.scrollTo(0, saved.scrollY);
+    };
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(restore);
+    });
+  }, [phase]);
 
   /**
    * Translation helper — resolves a dot-separated key from the

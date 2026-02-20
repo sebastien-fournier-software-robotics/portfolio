@@ -286,8 +286,8 @@ const translations = {
     /* ------------------------------------------------------------------ */
     experiences: {
         title: {
-            en: <>Professional <strong className="purple">Experience</strong> & <strong className="purple">Clients</strong></>,
-            fr: <>Expériences <strong className="purple">professionnelles</strong> & <strong className="purple">clients</strong></>,
+            en: <>Professional <strong className="purple">Experience</strong> & <strong className="purple">Customers</strong></>,
+            fr: <>Expériences <strong className="purple">professionnelles</strong> & <strong className="purple">Clients</strong></>,
         },
         subtitle: {
             en: "Key roles and collaborations.",
@@ -948,8 +948,8 @@ const translations = {
             subjects: { en: "Subjects", fr: "Matières" },
         },
         title: {
-            en: <>Academic <strong className="purple">Formation</strong> & <strong className="purple">Certifications</strong></>,
-            fr: <>Formation <strong className="purple">académique</strong> & <strong className="purple">certifications</strong></>,
+            en: <>Education & Certifications</>,
+            fr: <>Formations & certifications</>,
         },
         subtitle: {
             en: "Degrees, courses and certifications.",

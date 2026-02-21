@@ -28,8 +28,8 @@ const translations = {
     /* ------------------------------------------------------------------ */
     home: {
         greeting: { en: "Hello There!", fr: "Bonjour !" },
-        iAm: { en: "I'M", fr: "JE SUIS" },
-        contactBtn: { en: "Contact Me", fr: "Me contacter" },
+        iAm: { en: "I'M", fr: "Je suis" },
+        contactBtn: { en: "Contact Me", fr: "Contactez-moi" },
         downloadCV: { en: "Download CV", fr: "Télécharger CV" },
     },
 
@@ -1135,7 +1135,7 @@ const translations = {
     findMeOn: {
         title: {
             en: <>Contact <strong className="purple">me</strong></>,
-            fr: <>Contactez <strong className="purple">moi</strong></>,
+            fr: <>Contactez-<strong className="purple">moi</strong></>,
         },
         subtitle: {
             en: (

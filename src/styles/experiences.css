@@ -840,6 +840,16 @@
     grid-template-rows: 1fr;
     align-items: center;
   }
+  /* Formation : 4 blocs directs (pas de .experiences-card-detail), grille en 4 lignes */
+  .education-section .experiences-card--grid {
+    grid-template-rows: auto auto auto auto;
+  }
+  .education-section .experiences-card--grid .experiences-grid-col1.experiences-grid-row2 {
+    grid-row: 3;
+  }
+  .education-section .experiences-card--grid .experiences-grid-col2.experiences-grid-row2 {
+    grid-row: 4;
+  }
   .experiences-meta {
     padding: 14px 16px;
     margin-bottom: 0;

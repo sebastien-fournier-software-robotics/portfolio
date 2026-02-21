@@ -40,7 +40,7 @@ function Home() {
                                     className="home-contact-btn"
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "center" });
                                     }}
                                 >
                                     <MdOutlineEmail style={{ marginBottom: "2px" }} />

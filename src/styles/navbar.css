@@ -79,7 +79,7 @@
   transition: padding 0.3s ease, background-color 0.3s ease !important;
   padding: 0.3rem 2rem !important;
   font-size: 1.05rem !important;
-  font-family: var(--font-heading), var(--font-body) !important;
+  font-family: "Space Grotesk", "Inter", sans-serif !important;
   display: flex !important;
   align-items: center !important;
 }

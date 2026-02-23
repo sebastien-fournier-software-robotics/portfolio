@@ -1,6 +1,6 @@
-# Portfolio — Sébastien Fournier
+# Portfolio
 
-Professional portfolio presenting my profile as a **Software Robotics Engineer & Architect**: expertise in autonomous robotics, computer vision, embedded AI, and software architecture.
+Professional portfolio template: **Tech** profile — expertise in robotics, computer vision, embedded AI and software architecture.
 
 ---
 
@@ -13,7 +13,7 @@ This single-page application showcases:
 - **Skills** — Professional skillset and technical stack (architecture, robotics, DevOps, observability, etc.)
 - **Experience** — Professional experience and key clients, with timeline and detailed missions
 - **Projects** — Selected projects (e.g. autonomous rover, REST API Fin-Tech, game engine in C) with stack and links
-- **Education** — Degrees and certifications (INSA Rennes, University of Strathclyde)
+- **Education** — Degrees and certifications
 - **Contact** — CTA and links (email, LinkedIn, GitHub)
 
 The site is **bilingual (French / English)** with a language toggle and smooth transition between locales. Content is driven by a centralised translation file for easy maintenance.
@@ -59,6 +59,26 @@ npm run build
 
 Output is in the `build/` folder (static assets ready to deploy).
 
+### Development with Docker
+
+Run the app in a container instead of installing Node.js locally. Useful when you want a **consistent environment** (same Node 22 for everyone), to **avoid host issues** (e.g. `node_modules` / file watching on Windows or WSL), or to **onboard quickly** with only Docker installed.
+
+**Prerequisites:** [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/).
+
+**Build and start:**
+
+```bash
+docker compose up --build
+```
+
+The app runs at [http://localhost:3000](http://localhost:3000); edits on your host are reflected via the volume mount and hot reload.
+
+**Run in background:** `docker compose up -d --build`  
+
+**Stop:** `docker compose down`
+
+The repo is mounted as `.:/app`; `node_modules` is kept inside the container. The image uses **Node 22 Alpine** and `CHOKIDAR_USEPOLLING=true` for reliable file watching.
+
 ### Deploy on GitHub Pages
 
 The site is set up to be hosted on **GitHub Pages** at the URL defined in `package.json` (`homepage`).
@@ -77,18 +97,21 @@ Locally: run `npm install` then `npm run deploy`. This builds the project and pu
 
 ## Project Structure (main parts)
 
+Order follows the page flow (see `App.js` and Overview).
+
 | Path | Role |
 |------|------|
 | `src/App.js` | App shell, section order, language provider |
 | `src/context/translations.js` | All copy (EN/FR); section order matches page order |
 | `src/context/LanguageContext.js` | Language state and `t()` helper |
-| `src/components/Home/` | Hero, typewriter, CTA |
-| `src/components/About/` | About section and avatar |
-| `src/components/Skills/` | Skills and categories |
-| `src/components/Experiences/` | Experience timeline and cards |
-| `src/components/Projects/` | Project cards and “ongoing” badge |
-| `src/components/Education/` | Education timeline and cards |
-| `src/components/FindMeOn/` | Contact CTA and links |
+| `src/components/Home/` | Profile & CV — hero, typewriter, CTA |
+| `src/components/About/` | About — expertise and avatar |
+| `src/components/Skills/` | Skills — categories and stack |
+| `src/components/Experiences/` | Experience — timeline and cards |
+| `src/components/Projects/` | Projects — cards and “ongoing” badge |
+| `src/components/Education/` | Education — timeline and cards |
+| `src/components/FindMeOn/` | Contact — CTA and links (email, LinkedIn, GitHub) |
+| `src/components/Footer/` | Footer — copyright |
 | `src/styles/` | Global and section-specific CSS (variables, cards, experiences, etc.) |
 
 To change copy or add a language, edit `src/context/translations.js`. To add or reorder sections, update `App.js` and the translation keys accordingly.

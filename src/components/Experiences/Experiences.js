@@ -18,7 +18,6 @@ import echosensLogo from "../../assets/Customers/echosens.png";
 import navyaLogo from "../../assets/Customers/navya.png";
 import upTechnologiesLogo from "../../assets/Customers/up_technologies.png";
 import stoerkTronicLogo from "../../assets/Customers/stoerk-tronic.png";
-import bontronicLogo from "../../assets/Customers/bontronic.png";
 import strathclydeLogo from "../../assets/Customers/strathclyde.png";
 
 const EXPERIENCE_LOCAL_LOGOS = {
@@ -27,7 +26,6 @@ const EXPERIENCE_LOCAL_LOGOS = {
     "navya": navyaLogo,
     "up-technologies": upTechnologiesLogo,
     "stoerk-tronic": stoerkTronicLogo,
-    "bontronic": bontronicLogo,
     "strathclyde": strathclydeLogo,
 };
 
@@ -354,7 +352,6 @@ function Experiences() {
         <section id="experiences" className="experiences-section" style={{ minHeight: "50vh", padding: "80px 0" }}>
             <Container>
                 <h1 className="project-heading">{t("experiences.title")}</h1>
-                <p className="experiences-subtitle">{t("experiences.subtitle")}</p>
 
                 <div className="experiences-timeline">
                     <div className="experiences-timeline-track" aria-hidden="true" />

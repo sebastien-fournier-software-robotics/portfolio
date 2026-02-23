@@ -6,9 +6,15 @@
   position: relative !important;
   z-index: 1;
   padding-top: 300px !important;
-  padding-bottom: 150px !important;
+  padding-bottom: 220px !important;
   background: transparent !important;
   color: var(--color-text-primary) !important;
+}
+
+@media (max-width: 1024px) {
+  .contact-section {
+    padding-bottom: 180px !important;
+  }
 }
 
 .contact-section .home-about-social {
@@ -18,7 +24,8 @@
 }
 
 .contact-section .project-heading {
-  padding-bottom: 10px;
+  margin-bottom: var(--section-heading-gap);
+  /* police, couleur, taille : héritées de .project-heading (cards.css) */
 }
 
 .contact-section .contact-subtitle {
@@ -44,13 +51,10 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .contact-section {
     padding-top: 80px !important;
-    padding-bottom: 50px !important;
-  }
-  .contact-section .project-heading {
-    font-size: 1.75em !important;
+    padding-bottom: 120px !important;
   }
   .contact-section .contact-subtitle {
     font-size: 0.95em;
@@ -61,9 +65,6 @@
 @media (max-width: 480px) {
   .contact-section {
     padding-top: 60px !important;
-    padding-bottom: 40px !important;
-  }
-  .contact-section .project-heading {
-    font-size: 1.5em !important;
+    padding-bottom: 60px !important;
   }
 }

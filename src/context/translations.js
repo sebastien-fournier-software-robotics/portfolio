@@ -86,30 +86,6 @@ const translations = {
                     My name is Sébastien Fournier. I am a software robotics engineer and architect,
                     passionate about autonomous navigation, embedded AI, and technical excellence.
                     <br /><br />
-                    <strong>My various roles</strong>
-                    <ul>
-                        <li>
-                            <strong>The Architect:</strong> I structure your
-                            projects to build robust and maintainable systems. My
-                            goal is to ensure software reliability from the design
-                            phase to support the long-term evolution of your
-                            solutions.
-                        </li>
-                        <li>
-                            <strong>The Field &amp; Infrastructure Expert:</strong>{" "}
-                            With an operational mindset, I support infrastructures
-                            and CI/CD pipelines that streamline team workflows. I
-                            rely on relevant simulation and solid observability to
-                            secure the transition to real-world testing.
-                        </li>
-                        <li>
-                            <strong>The Strategic Partner:</strong> From design to
-                            deployment, I provide end-to-end expertise. Bilingual
-                            and pedagogical, I lead teams using a cross-functional
-                            language to turn your complex challenges into tangible
-                            results, both in industry and research centers.
-                        </li>
-                    </ul>
                     My approach is based on an iterative methodology and a strong
                     ability to prioritize the most critical challenges. Beyond
                     technical expertise, I put my energy and proactivity at the
@@ -134,32 +110,6 @@ const translations = {
                     et architecte, passionné par la navigation autonome, l&apos;IA embarquée et
                     l&apos;excellence technique.
                     <br /><br />
-                    <strong>Mes différentes casquettes</strong>
-                    <ul>
-                        <li>
-                            <strong>L&apos;Architecte :</strong> Je structure vos projets
-                            pour bâtir des systèmes robustes et maintenables. Mon
-                            objectif est d&apos;assurer la fiabilité logicielle dès la
-                            conception pour soutenir l&apos;évolution de vos solutions
-                            sur le long terme.
-                        </li>
-                        <li>
-                            <strong>L&apos;Expert Terrain &amp; Infrastructure :</strong>{" "}
-                            Avec une vision opérationnelle, j&apos;apporte un soutien aux
-                            infrastructures et pipelines CI/CD qui
-                            facilitent le quotidien des équipes. Je m&apos;appuie sur une
-                            simulation pertinente et une observabilité solide pour
-                            sécuriser le passage aux tests en conditions réelles.
-                        </li>
-                        <li>
-                            <strong>Le Partenaire Stratégique :</strong> De la conception
-                            au déploiement, j&apos;apporte une expertise complète.
-                            Bilingue et pédagogue, j&apos;anime les équipes en utilisant
-                            un langage multi-métier pour transformer vos
-                            enjeux complexes en résultats tangibles, en entreprise comme
-                            en centre de recherche.
-                        </li>
-                    </ul>
                     Ma méthode repose sur une approche itérative et une
                     forte capacité à prioriser les défis les plus critiques. Au-delà de
                     l&apos;expertise technique, je mets mon énergie et ma proactivité au
@@ -292,10 +242,6 @@ const translations = {
             en: <>Professional <strong className="purple">Experience</strong> & <strong className="purple">Clients</strong></>,
             fr: <>Expériences <strong className="purple">professionnelles</strong> & <strong className="purple">Clients</strong></>,
         },
-        subtitle: {
-            en: "Main roles and collaborations.",
-            fr: "Principaux postes et collaborations.",
-        },
         labels: {
             project: { en: "Context", fr: "Contexte" },
             missions: { en: "Missions", fr: "Missions" },
@@ -314,7 +260,6 @@ const translations = {
         ongoing: { en: "Ongoing", fr: "En cours" },
         experienceTypeBadges: {
             consultant: { en: "Consultant", fr: "Consultant" },
-            stage: { en: "Internship", fr: "Stage" },
         },
         toggleExpand: { en: "Show details", fr: "Afficher le détail" },
         toggleCollapse: { en: "Hide details", fr: "Masquer le détail" },
@@ -598,7 +543,6 @@ const translations = {
                     company: "University of Strathclyde",
                     logoKey: "strathclyde",
                     role: "Research Engineer",
-                    experienceType: "stage",
                     period: "September 2017 – June 2018",
                     duration: "10 months",
                     location: "Glasgow, United Kingdom",
@@ -618,23 +562,6 @@ const translations = {
                         "15 000 · Lines of code.",
                     ],
                     tags: ["Biomechanics", "Java", "Bluetooth Low Energy", "Android", "Database", "Statistics", "Research"],
-                },
-                {
-                    company: "Bontronic",
-                    logoKey: "bontronic",
-                    role: "Robotics Engineer",
-                    experienceType: "stage",
-                    period: "May 2017 – August 2017",
-                    duration: "4 months",
-                    location: "Troisdorf, Germany",
-                    project: "Study and design of a robotic arm for the automotive industry.",
-                    achievements: [
-                        "Feasibility study.",
-                        "Architectural study.",
-                        "Electromagnetic Compatibility (EMC) study.",
-                        "Redesign of the robot state architecture.",
-                    ],
-                    tags: ["C", "C++", "Robotics", "NXP", "Automotive", "Industrial"],
                 },
             ],
             fr: [
@@ -927,7 +854,6 @@ const translations = {
                     company: "University of Strathclyde",
                     logoKey: "strathclyde",
                     role: "Ingénieur de recherche",
-                    experienceType: "stage",
                     period: "septembre 2017 - juin 2018",
                     duration: "10 mois",
                     location: "Glasgow, Royaume-Uni",
@@ -948,23 +874,6 @@ const translations = {
                     ],
                     tags: ["Biomechanics", "Java", "Bluetooth Low Energy", "Android", "Base de données", "Statistiques", "Recherche"],
                 },
-                {
-                    company: "Bontronic",
-                    logoKey: "bontronic",
-                    role: "Ingénieur en robotique",
-                    experienceType: "stage",
-                    period: "mai 2017 - août 2017",
-                    duration: "4 mois",
-                    location: "Troisdorf, Allemagne",
-                    project: "Etude et conception d'un bras robotisé pour l'industrie automobile.",
-                    achievements: [
-                        "Etude de faisabilité.",
-                        "Etude architecturale.",
-                        "Etude de Compatibilité Electromagnétique (CEM).",
-                        "Refonte de l'architecture des états du robot.",
-                    ],
-                    tags: ["C", "C++", "Robotique", "NXP", "Automobile", "Industriel"],
-                },
             ],
         },
     },
@@ -974,12 +883,8 @@ const translations = {
     /* ------------------------------------------------------------------ */
     projects: {
         title: {
-            en: <>My <strong className="purple">Projects</strong></>,
-            fr: <>Mes <strong className="purple">projets</strong></>,
-        },
-        subtitle: {
-            en: "Here are a few projects I've worked on.",
-            fr: "Voici quelques projets sur lesquels j'ai travaillé.",
+            en: <>Projects</>,
+            fr: <>Projets</>,
         },
         ongoing: { en: "Ongoing", fr: "En cours" },
         entries: {
@@ -1001,7 +906,7 @@ const translations = {
                 {
                     title: "REST API Fin-Tech",
                     description:
-                        "Python project in two apps: a REST API for a web metadata database, and a service exposing a dictionary (15min-delayed BTC/EUR, ECB monthly EUR→GBP rate, BTC in GBP). API documented via two Postman collections (JSON). Deploy: venv + requirements.txt.",
+                        "Python project in two apps: a REST API for a metadata database, and a service exposing a dictionary (15min-delayed BTC/EUR, ECB monthly EUR→GBP rate, BTC in GBP). API documented via two Postman collections (JSON). Deploy: venv + requirements.txt.",
                     imgAlt: "Python API",
                     stack: ["Python", "REST", "PostgreSQL", "Web crawler"],
                 },
@@ -1038,7 +943,7 @@ const translations = {
                 {
                     title: "API REST Fin-Tech",
                     description:
-                        "Projet Python en deux apps : API REST pour une base de métadonnées web, et un service exposant un dictionnaire (BTC/EUR 15 min, taux mensuel EUR→GBP BCE, BTC en GBP). API documentée par deux collections Postman (JSON). Déploiement : venv + requirements.txt.",
+                        "Projet Python en deux apps : API REST pour une base de métadonnées, et un service exposant un dictionnaire (BTC/EUR 15 min, taux mensuel EUR→GBP BCE, BTC en GBP). API documentée par deux collections Postman (JSON). Déploiement : venv + requirements.txt.",
                     imgAlt: "API Python",
                     stack: ["Python", "REST", "PostgreSQL", "Web crawler"],
                 },
@@ -1064,16 +969,9 @@ const translations = {
     /*  Education / Formation                                              */
     /* ------------------------------------------------------------------ */
     education: {
-        labels: {
-            subjects: { en: "Subjects", fr: "Matières" },
-        },
         title: {
             en: <>Education & Certifications</>,
             fr: <>Formations & certifications</>,
-        },
-        subtitle: {
-            en: "Degrees, courses and certifications.",
-            fr: "Diplômes, formations et certifications.",
         },
         entries: {
             en: [
@@ -1083,22 +981,12 @@ const translations = {
                     degree: "Master of Engineering: Robotics, Networks and Electronics Engineering",
                     period: "2017 – 2018",
                     mention: <>International Studies<br />Award</>,
-                    tags: ["Robotics", "Networks", "Electrical Engineering", "Embedded Systems", "Communication Systems", "Machine Learning", "Computer Vision", "International Studies"],
                 },
                 {
                     school: "INSA Rennes",
                     logoKey: "insa",
                     degree: "Engineering degree: Electronics and Industrial Computer Science, research specialization",
                     period: "2012 – 2017",
-                    tags: ["Electronics", "Industrial Computing", "Embedded Systems", "Signal Processing", "Control Systems", "Automation", "Programming", "Research", "Real-time Systems", "Computer Architecture"],
-                },
-                {
-                    school: "Lycée Pontus de Tyard",
-                    logo: null,
-                    degree: "European Baccalaureate: Sciences, Mathematics and English",
-                    period: "2009 – 2012",
-                    mention: "With Honors",
-                    tags: ["Mathematics", "Sciences", "Physics", "English"],
                 },
             ],
             fr: [
@@ -1108,22 +996,12 @@ const translations = {
                     degree: "Master of Engineering - Ingénierie robotique, réseaux et électronique",
                     period: "sept. 2017 – août 2018",
                     mention: <>Mention<br />International Studies</>,
-                    tags: ["Robotique", "Réseaux", "Électronique", "Automatique", "Systèmes embarqués", "Systèmes de communication", "Traitement du signal", "Machine Learning", "Vision par ordinateur", "International Studies"],
                 },
                 {
                     school: "INSA Rennes",
                     logoKey: "insa",
                     degree: "Diplôme d'ingénieur, Electronique et Informatique Industrielle, spécialisation recherche",
                     period: "sept. 2012 – juin 2017",
-                    tags: ["Électronique", "Informatique industrielle", "Systèmes embarqués", "Traitement du signal", "Automatique", "Automatisation", "Programmation", "Recherche", "Temps réel", "Architecture des ordinateurs"],
-                },
-                {
-                    school: "Lycée Pontus de Tyard",
-                    logo: null,
-                    degree: "Baccalauréat scientifique européen, S-SVT, Mathématiques Anglais",
-                    period: "sept. 2009 – juin 2012",
-                    mention: "Mention Très Bien",
-                    tags: ["Mathématiques", "Sciences","Physique-Chimie", "Anglais"],
                 },
             ],
         },

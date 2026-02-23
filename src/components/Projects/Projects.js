@@ -25,7 +25,6 @@ function Projects() {
     <Container fluid className="project-section" id="project">
       <Container>
         <h1 className="project-heading">{t("projects.title")}</h1>
-        <p className="project-subtitle">{t("projects.subtitle")}</p>
         <Row className="justify-content-center" style={{ paddingBottom: "10px" }}>
           {entries.map((entry, index) => (
             <Col key={entry.title} md={4} className="project-card">

@@ -12,20 +12,29 @@ import logo from "../../assets/home_logo.png";
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
+/** Section IDs that may fit in the viewport; when they do, we center them on click. */
+const SECTIONS_CENTER_IF_FIT = ["about", "education", "contact"];
+
 /**
  * Smoothly scrolls the viewport to the section matching `sectionId`.
- * Scrolls to the section title (h1) so it appears at a consistent height below
- * the fixed navbar. Falls back to the section element if no title is found.
- * For "contact", scrolls so the section is at the top of the viewport and the footer remains visible below (space preserved).
+ * For about, education and contact: if the section height fits in the viewport,
+ * scrolls so the section is vertically centered; otherwise scrolls to the top.
+ * For other sections, scrolls to the section title (h1) at a consistent height below the navbar.
  */
 function scrollToSection(e, sectionId) {
     e.preventDefault();
     const section = document.getElementById(sectionId);
     if (!section) return;
-    if (sectionId === "contact") {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    const vh = window.innerHeight;
+    const sectionHeight = section.offsetHeight;
+    const shouldCenter = SECTIONS_CENTER_IF_FIT.includes(sectionId) && sectionHeight <= vh;
+
+    if (shouldCenter) {
+        section.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
     }
+
     const title = section.querySelector(".project-heading, .home-about-title");
     const target = title || section;
     target.scrollIntoView({ behavior: "smooth", block: "start" });

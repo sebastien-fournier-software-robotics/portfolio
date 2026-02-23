@@ -44,4 +44,7 @@
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.4s ease;
+
+  /* Section layout: espace constant entre titre de section et le contenu */
+  --section-heading-gap: 2rem;
 }

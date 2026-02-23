@@ -46,31 +46,10 @@
   justify-content: center;
 }
 
-.footer-body {
-  z-index: 1;
-  text-align: center !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .footer h3 {
   font-size: 0.9em;
   color: var(--color-text-light) !important;
   margin: 0 !important;
   font-weight: 400;
   line-height: 1.6;
-}
-
-.footer-icons {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-}
-
-.blockquote-footer {
-  color: #888888 !important;
 }

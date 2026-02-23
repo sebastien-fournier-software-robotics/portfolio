@@ -42,8 +42,10 @@ function App() {
           <Experiences />
           <Projects />
           <Education />
-          <FindMeOn />
-          <Footer />
+          <div id="contact">
+            <FindMeOn />
+            <Footer />
+          </div>
         </div>
       </LanguageProvider>
     </>

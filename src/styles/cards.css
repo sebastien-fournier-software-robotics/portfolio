@@ -10,12 +10,16 @@
   background: transparent !important;
 }
 
+/* Titres de section : style commun (couleur, police, taille) */
 .project-heading {
-  color: var(--color-text-primary) !important;
+  font-family: var(--font-heading);
   font-size: 2.3em !important;
   font-weight: 600 !important;
+  color: var(--color-text-primary) !important;
+  letter-spacing: 0.08em;
+  text-align: center;
   padding-top: 10px !important;
-  font-family: var(--font-heading);
+  margin-bottom: var(--section-heading-gap);
   scroll-margin-top: 5rem;
 }
 
@@ -39,36 +43,13 @@
   }
 }
 
-.project-subtitle {
-  color: var(--color-text-muted);
-  text-align: center;
-  font-family: var(--font-body);
-  line-height: 1.5;
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 767px) {
-  .project-subtitle {
-    font-size: 0.95em;
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-subtitle {
-    font-size: 0.88em;
-  }
-}
-
 /* --- Project cards grid --- */
 .project-section .row {
   row-gap: 32px;
 }
 
 .project-card {
-  padding-top: 24px !important;
+  padding-top: 0 !important;
   padding-bottom: 24px !important;
   padding-left: 20px !important;
   padding-right: 20px !important;

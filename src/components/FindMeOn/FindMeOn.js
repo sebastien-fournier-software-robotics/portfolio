@@ -9,7 +9,7 @@ function FindMeOn() {
     const { t } = useLanguage();
 
     return (
-        <Container fluid className="contact-section" id="contact">
+        <Container fluid className="contact-section">
             <Container>
                 <Row>
                     <Col md={12} className="home-about-social">

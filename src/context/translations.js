@@ -475,7 +475,7 @@ const translations = {
                 {
                     company: "Navya Mobility",
                     logoKey: "navya",
-                    role: "Software Robotics Engineer and Scrum Master",
+                    role: "Software Robotics Engineer, Scrum Master",
                     experienceType: "consultant",
                     period: "March 2021 – September 2022",
                     duration: "1 year 7 months",
@@ -786,7 +786,7 @@ const translations = {
                 {
                     company: "Navya Mobility",
                     logoKey: "navya",
-                    role: "Ingénieur en robotique logicielle et Scrum Master",
+                    role: "Ingénieur en robotique logicielle, Scrum Master",
                     experienceType: "consultant",
                     period: "mars 2021 - septembre 2022",
                     duration: "1 an 7 mois",

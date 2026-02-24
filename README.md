@@ -79,6 +79,15 @@ The app runs at [http://localhost:3000](http://localhost:3000); edits on your ho
 
 The repo is mounted as `.:/app`; `node_modules` is kept inside the container. The image uses **Node 22 Alpine** and `CHOKIDAR_USEPOLLING=true` for reliable file watching.
 
+### Contact form (Web3Forms)
+
+The contact section sends messages to your email via [Web3Forms](https://web3forms.com/) (no backend, no Outlook redirect).
+
+- **Local:** copy `.env.example` to `.env` and set `REACT_APP_WEB3FORMS_ACCESS_KEY` with your [Web3Forms access key](https://web3forms.com/).
+- **GitHub Pages:** in the repo **Settings** → **Secrets and variables** → **Actions**, add a secret named `REACT_APP_WEB3FORMS_ACCESS_KEY` with the same key so the workflow can build with it.
+
+---
+
 ### Deploy on GitHub Pages
 
 The site is set up to be hosted on **GitHub Pages** at the URL defined in `package.json` (`homepage`).
@@ -88,10 +97,11 @@ A GitHub Actions workflow (`.github/workflows/deploy-pages.yml`) builds and depl
 
 1. On GitHub: repo **Settings** → **Pages**
 2. Under **Build and deployment**, **Source**: select **GitHub Actions**
-3. Push this repo (with the workflow) to `main`/`master`; deployment runs automatically
+3. Add the Web3Forms key as a secret (see **Contact form** above) so the contact form works in production.
+4. Push this repo (with the workflow) to `main`/`master`; deployment runs automatically
 
 **Option 2 — Manual deployment**  
-Locally: run `npm install` then `npm run deploy`. This builds the project and pushes the contents of `build/` to the `gh-pages` branch. In **Settings → Pages**, set the source to the **gh-pages** branch.
+Locally: run `npm install` then `npm run deploy`. This builds the project and pushes the contents of `build/` to the `gh-pages` branch. In **Settings → Pages**, set the source to the **gh-pages** branch. Set `REACT_APP_WEB3FORMS_ACCESS_KEY` in your environment (or in a `.env` file) before running `npm run deploy` so the contact form works.
 
 ---
 

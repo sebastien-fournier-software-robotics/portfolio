@@ -282,6 +282,28 @@
   outline: none;
 }
 
+/* Form submit feedback (Web3Forms success/error) */
+.contact-form-feedback {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+}
+
+.contact-form-feedback--success {
+  color: #2d6a2d;
+  background: rgba(240, 252, 240, 0.9);
+  border: 1px solid rgba(34, 139, 34, 0.3);
+}
+
+.contact-form-feedback--error {
+  color: #b91c1c;
+  background: rgba(254, 226, 226, 0.9);
+  border: 1px solid rgba(185, 28, 28, 0.3);
+}
+
 /* Responsive: panel readable on small screens, no overflow */
 @media (max-width: 480px) {
   .contact-email-copy-panel {

@@ -1,10 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { HiOutlinePaperAirplane } from "react-icons/hi";
 import { useLanguage } from "../../context/LanguageContext";
+
+// Web3Forms free plan: use this site key; paid plans can set REACT_APP_HCAPTCHA_SITE_KEY
+const HCAPTCHA_SITE_KEY = process.env.REACT_APP_HCAPTCHA_SITE_KEY || "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // International format: optional + or 00 prefix, then digits and common separators (spaces, dots, dashes, parentheses)
@@ -36,10 +40,15 @@ function FindMeOn() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
-    const [errors, setErrors] = useState({ email: null, phone: null });
+    const [errors, setErrors] = useState({ firstName: null, lastName: null, email: null, phone: null });
     const [emailCopied, setEmailCopied] = useState(false);
     const [panelVisible, setPanelVisible] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState("idle"); // idle | sending | success | error
+    const [submitErrorMessage, setSubmitErrorMessage] = useState(null); // API error message when submitStatus === "error"
+    const [hCaptchaToken, setHCaptchaToken] = useState(null);
+    const [captchaError, setCaptchaError] = useState(null);
     const panelCloseTimerRef = useRef(null);
+    const hCaptchaRef = useRef(null);
 
     useEffect(() => {
         if (!panelVisible) return;
@@ -65,29 +74,103 @@ function FindMeOn() {
         );
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        const firstNameValid = firstName.trim().length > 0;
+        const lastNameValid = lastName.trim().length > 0;
         const emailValid = validateEmail(email);
         const phoneValid = validatePhone(phone);
         setErrors({
+            firstName: firstNameValid ? null : "required",
+            lastName: lastNameValid ? null : "required",
             email: emailValid ? null : "email",
             phone: phoneValid ? null : "phone",
         });
-        if (!emailValid || !phoneValid) return;
+        if (!firstNameValid || !lastNameValid || !emailValid || !phoneValid) return;
 
-        const subject = encodeURIComponent("Contact portfolio");
-        const nameLine = [firstName, lastName].filter(Boolean).join(" ");
-        const bodyParts = [
-            nameLine ? `De : ${nameLine}` : null,
+        if (!hCaptchaToken) {
+            setCaptchaError(true);
+            return;
+        }
+        setCaptchaError(null);
+
+        const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
+        if (!accessKey) {
+            setSubmitErrorMessage("REACT_APP_WEB3FORMS_ACCESS_KEY is missing. Add it to .env and restart the dev server.");
+            setSubmitStatus("error");
+            return;
+        }
+
+        setSubmitStatus("sending");
+        setSubmitErrorMessage(null);
+
+        const payload = {
+            access_key: accessKey,
+            subject: "Contact from portfolio",
+            from_name: [firstName, lastName].filter(Boolean).join(" ") || "Contact form",
+            "First name": firstName,
+            "Last name": lastName,
+            email,
+            ...(phone ? { phone } : {}),
             message,
-            phone ? `Téléphone : ${phone}` : null,
-        ].filter(Boolean);
-        const body = encodeURIComponent(bodyParts.join("\n\n"));
-        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+            "h-captcha-response": hCaptchaToken,
+        };
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
+                body: JSON.stringify(payload),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
+                setSubmitStatus("success");
+                setSubmitErrorMessage(null);
+                setFirstName("");
+                setLastName("");
+                setEmail("");
+                setPhone("");
+                setMessage("");
+                setHCaptchaToken(null);
+                setCaptchaError(null);
+                hCaptchaRef.current?.resetCaptcha();
+            } else {
+                const apiMessage = data.body?.message || data.message || (res.status === 429 ? "Too many requests. Please try again later." : null);
+                const isSecurityError = apiMessage && /security|sécurité/i.test(apiMessage);
+                setSubmitErrorMessage(
+                    isSecurityError && apiMessage
+                        ? `${apiMessage} ${t("findMeOn.formSubmitErrorCaptchaHint")}`
+                        : apiMessage || null
+                );
+                setSubmitStatus("error");
+                setHCaptchaToken(null);
+                setCaptchaError(null);
+                hCaptchaRef.current?.resetCaptcha();
+                if (process.env.NODE_ENV === "development") {
+                    console.error("[Contact form] Web3Forms error:", res.status, data);
+                }
+            }
+        } catch (err) {
+            setSubmitErrorMessage(process.env.NODE_ENV === "development" ? err.message : null);
+            setSubmitStatus("error");
+            setHCaptchaToken(null);
+            setCaptchaError(null);
+            hCaptchaRef.current?.resetCaptcha();
+            if (process.env.NODE_ENV === "development") {
+                console.error("[Contact form] Network or parse error:", err);
+            }
+        }
     };
 
     const clearError = (field) => {
         setErrors((prev) => ({ ...prev, [field]: null }));
+    };
+
+    const clearSubmitStatus = () => {
+        if (submitStatus === "success" || submitStatus === "error") {
+            setSubmitStatus("idle");
+            setSubmitErrorMessage(null);
+        }
     };
 
     return (
@@ -113,9 +196,15 @@ function FindMeOn() {
                                                     type="text"
                                                     placeholder={t("findMeOn.formFirstNamePlaceholder")}
                                                     value={firstName}
-                                                    onChange={(e) => setFirstName(e.target.value)}
+                                                    onChange={(e) => { setFirstName(e.target.value); clearError("firstName"); clearSubmitStatus(); }}
+                                                    isInvalid={!!errors.firstName}
                                                     required
                                                 />
+                                                {errors.firstName && (
+                                                    <Form.Control.Feedback type="invalid">
+                                                        {t("findMeOn.formErrorRequired")}
+                                                    </Form.Control.Feedback>
+                                                )}
                                             </Form.Group>
                                         </Col>
                                         <Col md={6}>
@@ -125,9 +214,15 @@ function FindMeOn() {
                                                     type="text"
                                                     placeholder={t("findMeOn.formLastNamePlaceholder")}
                                                     value={lastName}
-                                                    onChange={(e) => setLastName(e.target.value)}
+                                                    onChange={(e) => { setLastName(e.target.value); clearError("lastName"); clearSubmitStatus(); }}
+                                                    isInvalid={!!errors.lastName}
                                                     required
                                                 />
+                                                {errors.lastName && (
+                                                    <Form.Control.Feedback type="invalid">
+                                                        {t("findMeOn.formErrorRequired")}
+                                                    </Form.Control.Feedback>
+                                                )}
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -142,6 +237,7 @@ function FindMeOn() {
                                                     onChange={(e) => {
                                                         setEmail(e.target.value);
                                                         clearError("email");
+                                                        clearSubmitStatus();
                                                     }}
                                                     isInvalid={!!errors.email}
                                                     required
@@ -163,6 +259,7 @@ function FindMeOn() {
                                                     onChange={(e) => {
                                                         setPhone(e.target.value);
                                                         clearError("phone");
+                                                        clearSubmitStatus();
                                                     }}
                                                     isInvalid={!!errors.phone}
                                                 />
@@ -181,13 +278,42 @@ function FindMeOn() {
                                             rows={4}
                                             placeholder={t("findMeOn.formMessagePlaceholder")}
                                             value={message}
-                                            onChange={(e) => setMessage(e.target.value)}
+                                            onChange={(e) => { setMessage(e.target.value); clearSubmitStatus(); }}
                                             required
                                         />
                                     </Form.Group>
-                                    <Button type="submit" variant="primary" className="contact-form-send-btn">
+                                    <Form.Group className="mb-3" controlId="contact-captcha">
+                                        <HCaptcha
+                                            ref={hCaptchaRef}
+                                            sitekey={HCAPTCHA_SITE_KEY}
+                                            onVerify={(token) => { setHCaptchaToken(token); setCaptchaError(null); clearSubmitStatus(); }}
+                                            onExpire={() => setHCaptchaToken(null)}
+                                            reCaptchaCompat={false}
+                                        />
+                                        {captchaError && (
+                                            <div className="invalid-feedback d-block">
+                                                {t("findMeOn.formErrorCaptchaRequired")}
+                                            </div>
+                                        )}
+                                    </Form.Group>
+                                    {submitStatus === "success" && (
+                                        <div className="contact-form-feedback contact-form-feedback--success" role="status">
+                                            {t("findMeOn.formSubmitSuccess")}
+                                        </div>
+                                    )}
+                                    {submitStatus === "error" && (
+                                        <div className="contact-form-feedback contact-form-feedback--error" role="alert">
+                                            {submitErrorMessage || t("findMeOn.formSubmitError")}
+                                        </div>
+                                    )}
+                                    <Button
+                                        type="submit"
+                                        variant="primary"
+                                        className="contact-form-send-btn"
+                                        disabled={submitStatus === "sending"}
+                                    >
                                         <HiOutlinePaperAirplane className="contact-form-send-icon" aria-hidden />
-                                        {t("findMeOn.formSend")}
+                                        {submitStatus === "sending" ? t("findMeOn.formSubmitSending") : t("findMeOn.formSend")}
                                     </Button>
                                         </Form>
                                     </Col>

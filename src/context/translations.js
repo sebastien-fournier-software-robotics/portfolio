@@ -1062,6 +1062,19 @@ const translations = {
             fr: "Décrivez votre projet ou question...",
         },
         formSend: { en: "Send", fr: "Envoyer" },
+        formSubmitSending: { en: "Sending…", fr: "Envoi en cours…" },
+        formSubmitSuccess: {
+            en: "Message sent successfully. I'll get back to you soon.",
+            fr: "Message envoyé. Je vous répondrai bientôt.",
+        },
+        formSubmitError: {
+            en: "Something went wrong. Please try again or email me directly.",
+            fr: "Une erreur s'est produite. Réessayez ou écrivez-moi directement.",
+        },
+        formErrorRequired: {
+            en: "This field is required.",
+            fr: "Ce champ est obligatoire.",
+        },
         formErrorEmailInvalid: {
             en: "Please enter a valid email address (e.g. name@example.com).",
             fr: "Veuillez saisir une adresse email valide (ex. nom@exemple.com).",
@@ -1069,6 +1082,14 @@ const translations = {
         formErrorPhoneInvalid: {
             en: "Please enter a valid international number (e.g. +33 6 12 34 56 78 or +1 234 567 8900). Between 10 and 15 digits.",
             fr: "Veuillez saisir un numéro international valide (ex. +33 6 12 34 56 78). Entre 10 et 15 chiffres.",
+        },
+        formErrorCaptchaRequired: {
+            en: "Please complete the captcha before sending.",
+            fr: "Veuillez compléter le captcha avant d'envoyer.",
+        },
+        formSubmitErrorCaptchaHint: {
+            en: "If the error persists: enable hCaptcha in your Web3Forms dashboard (app.web3forms.com), then solve the captcha again and send.",
+            fr: "Si l'erreur persiste : activez hCaptcha dans le tableau de bord Web3Forms (app.web3forms.com), puis complétez à nouveau le captcha et envoyez.",
         },
         emailCopyHint: {
             en: "Click to copy to clipboard",

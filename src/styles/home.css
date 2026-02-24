@@ -60,6 +60,83 @@
   z-index: 2;
 }
 
+/* --- Scroll hint: sober, premium, tech --- */
+.home-scroll-hint {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.home-scroll-hint:hover {
+  opacity: 0.85;
+}
+
+.home-scroll-hint-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  animation: home-scroll-float 2.5s ease-in-out infinite;
+}
+
+.home-scroll-hint-icon svg {
+  display: block;
+}
+
+.home-scroll-hint-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.home-scroll-hint-arrow svg {
+  display: block;
+}
+
+.home-scroll-hint-text {
+  white-space: nowrap;
+}
+
+.home-scroll-hint-delimiter {
+  margin-top: 0.25rem;
+  width: 4rem;
+  height: 1px;
+  background: currentColor;
+}
+
+@keyframes home-scroll-float {
+  0%, 100% { transform: translateY(0); }
+  50%     { transform: translateY(4px); }
+}
+
+@media (max-width: 768px) {
+  .home-scroll-hint {
+    bottom: 1.25rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+  .home-scroll-hint-icon svg {
+    width: 18px;
+    height: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .home-section .container.home-content {
     padding: 6rem 1.5rem 1.5rem !important;

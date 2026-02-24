@@ -31,6 +31,7 @@ const translations = {
         iAm: { en: "I'M", fr: "Je suis" },
         contactBtn: { en: "Contact Me", fr: "Contactez-moi" },
         downloadCV: { en: "Download CV", fr: "Télécharger CV" },
+        scrollHint: { en: "Scroll with your mouse", fr: "Défiler avec la souris" },
     },
 
     /* ------------------------------------------------------------------ */

@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import { useLanguage } from "../../context/LanguageContext";
+import homeLogoImg from "../../assets/home_logo.png";
 import jetroverImg from "../../assets/Projects/jetrover.png";
 import robotCarImg from "../../assets/Projects/robot_car.png";
 import djangoPythonImg from "../../assets/Projects/django_python.png";
@@ -10,11 +11,12 @@ import towerfallImg from "../../assets/Projects/towerfall.png";
 
 /** Order must match projects.entries in translations.js */
 const PROJECT_META = [
-  { imgPath: jetroverImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/solaris_basis", ongoing: true },
-  { imgPath: robotCarImg, ghLink: "" },
-  { imgPath: djangoPythonImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/Django-Web-Server" },
-  { imgPath: armImg, ghLink: "" },
-  { imgPath: towerfallImg, ghLink: "" },
+    { imgPath: jetroverImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/solaris_basis", ongoing: true },
+    { imgPath: robotCarImg, ghLink: "" },
+    { imgPath: homeLogoImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/portfolio", ongoing: false },
+    { imgPath: djangoPythonImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/Django-Web-Server" },
+    { imgPath: armImg, ghLink: "" },
+    { imgPath: towerfallImg, ghLink: "" },
 ];
 
 function Projects() {

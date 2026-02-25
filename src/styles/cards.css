@@ -166,10 +166,15 @@
 .project-card-view .card-text {
   font-family: var(--font-body) !important;
   font-size: 0.92em !important;
-  line-height: 1.6 !important;
+  line-height: 1.65 !important;
   color: var(--color-text-secondary) !important;
   margin-bottom: 0 !important;
-  text-align: justify !important;
+  text-align: left !important;
+  display: block !important;
+  max-width: 100% !important;
+  padding-inline: 0 !important;
+  hyphens: auto !important;
+  word-spacing: 0.02em !important;
 }
 
 .project-stack {
@@ -303,7 +308,7 @@
   }
   .project-card-view .card-text {
     font-size: 0.88em !important;
-    line-height: 1.55 !important;
+    line-height: 1.6 !important;
   }
   .project-stack {
     gap: 6px;

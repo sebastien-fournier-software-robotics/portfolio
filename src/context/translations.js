@@ -893,21 +893,28 @@ const translations = {
                 {
                     title: "Autonomous inspection rover for solar farms",
                     description:
-                        "Design and development of an autonomous rover for defect inspection in solar farms. Autonomous navigation and anomaly detection on photovoltaic panels.",
+                    "Design and development of an autonomous rover for defect inspection in solar farms. Autonomous navigation and anomaly detection on photovoltaic panels.",
                     imgAlt: "Autonomous inspection rover",
                     stack: ["ROS2", "Nav2", "C++", "OpenCV", "FoxGlove", "Docker", "NVIDIA Jetson"],
                 },
                 {
                     title: "Wi-Fi robotic car",
                     description:
-                        "Design and development of an Android application to drive a robotic car via Wi-Fi. Real-time communication, intuitive user interface, embedded command handling, PID control and full electronic integration.",
+                    "Design and development of an Android application to drive a robotic car via Wi-Fi. Real-time communication, intuitive user interface, embedded command handling, PID control and full electronic integration.",
                     imgAlt: "Robotic control and development",
                     stack: ["Android", "Wi-Fi", "Real-time", "Embedded"],
                 },
                 {
+                    title: "This portfolio",
+                    description:
+                        "Single-page portfolio built in ReactJS: hero, about, skills, experiences, projects, education and contact form. 3D Fibonacci sphere animation (Three.js). Traductions FR/EN, responsive layout, Web3Forms for the contact form, deployed on GitHub Pages.",
+                    imgAlt: "Portfolio logo",
+                    stack: ["React", "Three.js", "Bootstrap", "GitHub Pages", "Web3Forms"],
+                },
+                {
                     title: "REST API Fin-Tech",
                     description:
-                        "Python project in two apps: a REST API for a metadata database, and a service exposing a dictionary (15min-delayed BTC/EUR, ECB monthly EUR→GBP rate, BTC in GBP). API documented via two Postman collections (JSON). Deploy: venv + requirements.txt.",
+                    "Python project in two apps: a REST API for a metadata database, and a service exposing a dictionary (15min-delayed BTC/EUR, ECB monthly EUR→GBP rate, BTC in GBP). API documented via two Postman collections (JSON). Deploy: venv + requirements.txt.",
                     imgAlt: "Python API",
                     stack: ["Python", "REST", "PostgreSQL", "Web crawler"],
                 },
@@ -930,16 +937,23 @@ const translations = {
                 {
                     title: "Rover autonome d'inspection de fermes solaires",
                     description:
-                        "Conception et développement d'un rover autonome d'inspection de défauts en fermes solaires. Navigation autonome et détection des anomalies sur panneaux photovoltaïques.",
+                    "Conception et développement d'un rover autonome d'inspection de défauts en fermes solaires. Navigation autonome et détection des anomalies sur panneaux photovoltaïques.",
                     imgAlt: "Rover autonome d'inspection",
                     stack: ["ROS2", "Nav2", "C++", "OpenCV", "FoxGlove", "Docker", "NVIDIA Jetson"],
                 },
                 {
                     title: "Voiture robotisée Wi-Fi",
                     description:
-                        "Conception et développement d'une application Android pour piloter une voiture robotisée via Wi-Fi. Communication en temps réel, interface utilisateur intuitive, gestion embarquée des commandes, contrôle PID et intégration électronique complète.",
+                    "Conception et développement d'une application Android pour piloter une voiture robotisée via Wi-Fi. Communication en temps réel, interface utilisateur intuitive, gestion embarquée des commandes, contrôle PID et intégration électronique complète.",
                     imgAlt: "Contrôle robotisé et développement",
                     stack: ["Android", "Wi-Fi", "Temps réel", "Embedded"],
+                },
+                {
+                    title: "Ce portfolio",
+                    description:
+                        "Portfolio single-page réalisé en ReactJS : hero, à propos, compétences, expériences, projets, formations et formulaire de contact. Animation 3D sphère de Fibonacci (Three.js). Traduction FR/EN, mise en page responsive, Web3Forms pour le formulaire, déployé sur GitHub Pages.",
+                    imgAlt: "Logo du portfolio",
+                    stack: ["React", "Three.js", "Bootstrap", "GitHub Pages", "Web3Forms"],
                 },
                 {
                     title: "API REST Fin-Tech",

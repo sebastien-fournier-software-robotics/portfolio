@@ -893,9 +893,9 @@ const translations = {
                 {
                     title: "Autonomous inspection rover for solar farms",
                     description:
-                    "Design and development of an autonomous rover for defect inspection in solar farms. Autonomous navigation and anomaly detection on photovoltaic panels.",
+                        "Design and development of an autonomous rover for defect inspection in solar farms. Autonomous navigation, computer vision and machine learning for anomaly detection on photovoltaic panels.",
                     imgAlt: "Autonomous inspection rover",
-                    stack: ["ROS2", "Nav2", "C++", "OpenCV", "FoxGlove", "Docker", "NVIDIA Jetson"],
+                    stack: ["ROS2", "Nav2", "C++", "OpenCV", "Computer Vision", "Machine Learning", "FoxGlove", "Docker", "NVIDIA Jetson"],
                 },
                 {
                     title: "Wi-Fi robotic car",
@@ -907,9 +907,9 @@ const translations = {
                 {
                     title: "This portfolio",
                     description:
-                        "Single-page portfolio built in ReactJS: hero, about, skills, experiences, projects, education and contact form. 3D Fibonacci sphere animation (Three.js). Traductions FR/EN, responsive layout, Web3Forms for the contact form, deployed on GitHub Pages.",
+                        "Single-page portfolio built in ReactJS: hero, about, skills, experiences, projects, education and contact form. 3D Fibonacci sphere animation (Three.js). Bilingual FR/EN, responsive layout, Web3Forms for the contact form. Docker for local dev, CI/CD with GitHub Actions for build and deploy to GitHub Pages.",
                     imgAlt: "Portfolio logo",
-                    stack: ["React", "Three.js", "Bootstrap", "GitHub Pages", "Web3Forms"],
+                    stack: ["React", "Three.js", "Bootstrap", "Docker", "GitHub Actions", "GitHub Pages", "Web3Forms"],
                 },
                 {
                     title: "REST API Fin-Tech",
@@ -937,9 +937,9 @@ const translations = {
                 {
                     title: "Rover autonome d'inspection de fermes solaires",
                     description:
-                    "Conception et développement d'un rover autonome d'inspection de défauts en fermes solaires. Navigation autonome et détection des anomalies sur panneaux photovoltaïques.",
+                        "Conception et développement d'un rover autonome d'inspection de défauts en fermes solaires. Navigation autonome, vision par ordinateur et machine learning pour la détection d'anomalies sur panneaux photovoltaïques.",
                     imgAlt: "Rover autonome d'inspection",
-                    stack: ["ROS2", "Nav2", "C++", "OpenCV", "FoxGlove", "Docker", "NVIDIA Jetson"],
+                    stack: ["ROS2", "Nav2", "C++", "OpenCV", "Computer Vision", "Machine Learning", "FoxGlove", "Docker", "NVIDIA Jetson"],
                 },
                 {
                     title: "Voiture robotisée Wi-Fi",
@@ -951,9 +951,9 @@ const translations = {
                 {
                     title: "Ce portfolio",
                     description:
-                        "Portfolio single-page réalisé en ReactJS : hero, à propos, compétences, expériences, projets, formations et formulaire de contact. Animation 3D sphère de Fibonacci (Three.js). Traduction FR/EN, mise en page responsive, Web3Forms pour le formulaire, déployé sur GitHub Pages.",
+                        "Portfolio single-page réalisé en ReactJS : hero, à propos, compétences, expériences, projets, formations et formulaire de contact. Animation 3D sphère de Fibonacci (Three.js). Bilingue FR/EN, mise en page responsive, Web3Forms pour le formulaire. Docker pour le dev local, CI/CD avec GitHub Actions pour le build et le déploiement sur GitHub Pages.",
                     imgAlt: "Logo du portfolio",
-                    stack: ["React", "Three.js", "Bootstrap", "GitHub Pages", "Web3Forms"],
+                    stack: ["React", "Three.js", "Bootstrap", "Docker", "GitHub Actions", "GitHub Pages", "Web3Forms"],
                 },
                 {
                     title: "API REST Fin-Tech",

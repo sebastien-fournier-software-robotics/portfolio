@@ -40,6 +40,14 @@
   padding-top: 80px !important;
 }
 
+.home-sphere-col {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
 .home-section {
   position: relative;
   z-index: 1;
@@ -60,7 +68,44 @@
   z-index: 2;
 }
 
+/* Laptop: push scroll hint to bottom of viewport with flexible space after buttons */
+@media (min-width: 1025px) {
+  .home-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .home-section > .container-fluid,
+  .home-section > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .home-section .home-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0 !important;
+  }
+  .home-content > .row:first-child {
+    flex: 0 0 auto;
+  }
+  .home-scroll-hint-row {
+    margin-top: auto;
+    padding-bottom: 1.75rem;
+  }
+  .home-scroll-hint {
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+  }
+}
+
 /* --- Scroll hint: sober, premium, tech --- */
+.home-scroll-hint-row {
+  margin-top: 3rem;
+}
+
 .home-scroll-hint {
   position: absolute;
   bottom: 1.75rem;
@@ -125,26 +170,76 @@
   50%     { transform: translateY(4px); }
 }
 
+/* On mobile & tablet: place the scroll hint inside the row below the hero, not stuck to viewport bottom */
+@media (max-width: 1024px) {
+  .home-section {
+    min-height: auto;
+    padding-bottom: 2rem !important;
+  }
+
+  .home-scroll-hint {
+    position: static;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 1.25rem;
+  }
+
+  .home-scroll-hint-row {
+    margin-top: 1.25rem;
+  }
+
+  .home-content {
+    padding-top: 7rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .home-header {
+    padding-top: 60px !important;
+  }
+
+  .home-sphere-col {
+    padding-bottom: 10px;
+  }
+}
+
 @media (max-width: 768px) {
   .home-scroll-hint {
-    bottom: 1.25rem;
     font-size: 0.65rem;
     letter-spacing: 0.1em;
+    margin-top: 0.75rem;
   }
   .home-scroll-hint-icon svg {
     width: 18px;
     height: 30px;
   }
+
+  .home-scroll-hint-row {
+    margin-top: 0.75rem;
+  }
+
+  .home-sphere-col {
+    padding-bottom: 8px;
+  }
+
+  .home-content {
+    padding-top: 4.5rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .home-header {
+    padding-top: 28px !important;
+  }
 }
 
 @media (max-width: 768px) {
   .home-section .container.home-content {
-    padding: 6rem 1.5rem 1.5rem !important;
+    padding: 4.5rem 1.5rem 1.25rem !important;
     padding-left: 1.75rem !important;
     padding-right: 1.25rem !important;
   }
   .home-content {
-    padding: 6rem 1.5rem 1.5rem !important;
+    padding: 4.5rem 1.5rem 1.25rem !important;
     padding-left: 1.75rem !important;
     padding-right: 1.25rem !important;
     text-align: center;

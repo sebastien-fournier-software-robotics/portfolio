@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, memo } from "react";
 import { Container } from "react-bootstrap";
 import {
     AiOutlineCalendar,
@@ -210,7 +210,7 @@ function ExperienceCompanyLogo({ exp }) {
     );
 }
 
-function ExperienceCard({ exp, isExpanded, onToggle }) {
+const ExperienceCard = memo(function ExperienceCard({ exp, isExpanded, onToggle, index }) {
     const { t } = useLanguage();
     const duration = exp.isCurrent && exp.startDate
         ? formatDurationFromStart(exp.startDate, t)
@@ -228,8 +228,8 @@ function ExperienceCard({ exp, isExpanded, onToggle }) {
             {/* Row 1: company | role — clickable to toggle */}
             <div
                 className="experiences-grid-col1 experiences-grid-row1 experiences-card-header"
-                onClick={onToggle}
-                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onToggle(); } }}
+                onClick={() => onToggle(index)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onToggle(index); } }}
                 role="button"
                 tabIndex={0}
                 aria-expanded={isExpanded}
@@ -242,8 +242,8 @@ function ExperienceCard({ exp, isExpanded, onToggle }) {
             </div>
             <div
                 className="experiences-grid-col2 experiences-grid-row1 experiences-card-header"
-                onClick={onToggle}
-                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onToggle(); } }}
+                onClick={() => onToggle(index)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onToggle(index); } }}
                 role="button"
                 tabIndex={0}
                 aria-expanded={isExpanded}
@@ -320,7 +320,7 @@ function ExperienceCard({ exp, isExpanded, onToggle }) {
             </div>
         </div>
     );
-}
+});
 
 function ExperienceTimelineItem({ exp, index, isExpanded, onToggle }) {
     return (
@@ -329,27 +329,29 @@ function ExperienceTimelineItem({ exp, index, isExpanded, onToggle }) {
                 <span className="experiences-timeline-node-dot" />
             </div>
             <div className="experiences-timeline-connector" aria-hidden="true" />
-            <ExperienceCard exp={exp} isExpanded={isExpanded} onToggle={() => onToggle(index)} />
+            <ExperienceCard exp={exp} isExpanded={isExpanded} onToggle={onToggle} index={index} />
         </div>
     );
 }
+
+const EXPERIENCES_SECTION_STYLE = { minHeight: "50vh", padding: "80px 0" };
 
 function Experiences() {
     const { t } = useLanguage();
     const entries = t("experiences.entries") || [];
     const [expandedCards, setExpandedCards] = React.useState(() => new Set([0]));
 
-    const toggleCard = (index) => {
+    const toggleCard = useCallback((index) => {
         setExpandedCards((prev) => {
             const next = new Set(prev);
             if (next.has(index)) next.delete(index);
             else next.add(index);
             return next;
         });
-    };
+    }, []);
 
     return (
-        <section id="experiences" className="experiences-section" style={{ minHeight: "50vh", padding: "80px 0" }}>
+        <section id="experiences" className="experiences-section" style={EXPERIENCES_SECTION_STYLE}>
             <Container>
                 <h1 className="project-heading">{t("experiences.title")}</h1>
 

@@ -1,5 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+
+const STACK_ROW_STYLE = { justifyContent: "center", paddingBottom: "50px" };
 import { SiNextdotjs, SiSolidity } from "react-icons/si";
 import { FaRust } from "react-icons/fa";
 import Go from "../../assets/TechIcons/go.svg";
@@ -31,7 +33,7 @@ import intelliJ from "../../assets/TechIcons/intellij-idea.svg";
 
 export function Techstack() {
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+    <Row style={STACK_ROW_STYLE}>
       <Col xs={4} md={2} className="tech-icons">
         <img src={C} alt="C++" />
         <div className="tech-icons-text">C++</div>
@@ -147,7 +149,7 @@ export function Techstack() {
 
 export function Toolstack() {
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+    <Row style={STACK_ROW_STYLE}>
       <Col xs={4} md={2} className="tech-icons">
         <img src={macOs} alt="macOs" className="tech-icon-images" />
         <div className="tech-icons-text">Mac Os</div>

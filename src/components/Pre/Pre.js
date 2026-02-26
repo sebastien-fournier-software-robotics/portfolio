@@ -1,14 +1,14 @@
-import React from "react";
+import React, { memo } from "react";
 import logo from "../../assets/logo.png";
 
-function Pre(props) {
+const Pre = memo(function Pre({ load }) {
   return (
-    <div id={props.load ? "preloader" : "preloader-none"}>
-      {props.load && (
+    <div id={load ? "preloader" : "preloader-none"}>
+      {load && (
         <img src={logo} alt="Loading..." className="preloader-logo" />
       )}
     </div>
   );
-}
+});
 
 export default Pre;

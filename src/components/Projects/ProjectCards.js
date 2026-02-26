@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
@@ -7,7 +7,7 @@ import { useLanguage } from "../../context/LanguageContext";
 
 const hasValidLink = (link) => link && link !== "#";
 
-function ProjectCard({
+const ProjectCard = memo(function ProjectCard({
   imgPath,
   imgAlt,
   title,
@@ -66,6 +66,6 @@ function ProjectCard({
       </Card.Body>
     </Card>
   );
-}
+});
 
 export default ProjectCard;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import avatarImg from "../../assets/avatar.svg";
 import profileImg from "../../assets/profile_picture.jpg";
 
@@ -12,10 +12,12 @@ function FlipAvatar({ interval = 5000 }) {
     return () => clearInterval(timer);
   }, [interval]);
 
+  const toggleFlipped = useCallback(() => setFlipped((prev) => !prev), []);
+
   return (
     <div
       className="flip-avatar-container"
-      onClick={() => setFlipped((prev) => !prev)}
+      onClick={toggleFlipped}
     >
       <div className={`flip-avatar-inner ${flipped ? "flipped" : ""}`}>
         {/* Front face – SVG avatar */}

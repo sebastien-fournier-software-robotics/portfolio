@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Preloader from "./components/Pre/Pre";
 import Navbar from "./components/Navbar/Navbar";
 import Particle from "./components/shared/Particle";
@@ -17,6 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [load, upadateLoad] = useState(true);
+  const navbarElement = useMemo(() => <Navbar />, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,7 +34,7 @@ function App() {
           containing block for position:fixed and causes the particles to
           glitch/slide with the content. */}
       <Particle />
-      <LanguageProvider navbar={<Navbar />}>
+      <LanguageProvider navbar={navbarElement}>
         <Preloader load={load} />
         <div className="App" id={load ? "no-scroll" : "scroll"}>
           <Home />

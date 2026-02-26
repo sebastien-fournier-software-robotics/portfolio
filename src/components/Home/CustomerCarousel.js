@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import geHealthcare from "../../assets/Customers/ge-healthcare.png";
 import echosens from "../../assets/Customers/echosens.png";
 import navya from "../../assets/Customers/navya.png";
@@ -13,7 +13,7 @@ const CUSTOMERS = [
   { name: "Macnica", logo: macnica },
 ];
 
-function LogoSet() {
+const LogoSet = memo(function LogoSet() {
   return (
     <div className="customer-carousel-set">
       {CUSTOMERS.map((customer, index) => (
@@ -27,7 +27,7 @@ function LogoSet() {
       ))}
     </div>
   );
-}
+});
 
 function CustomerCarousel() {
   return (

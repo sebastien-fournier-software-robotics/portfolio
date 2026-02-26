@@ -134,6 +134,23 @@ function NavBar() {
         }
     }, [expand]);
 
+    const handleNavClick = useCallback((e) => {
+        const id = e.currentTarget.getAttribute("data-section");
+        if (id) {
+            scrollToSection(e, id);
+            updateExpanded(false);
+        }
+    }, []);
+
+    const handleToggle = useCallback(() => {
+        updateExpanded((prev) => (prev ? false : "expanded"));
+    }, []);
+
+    const closeExpand = useCallback(() => updateExpanded(false), []);
+
+    const flagClassFr = language === "fr" ? "lang-flag lang-active" : "lang-flag lang-inactive";
+    const flagClassEn = language === "en" ? "lang-flag lang-active" : "lang-flag lang-inactive";
+
     useEffect(() => {
         window.addEventListener("scroll", scrollHandler, { passive: true });
         return () => window.removeEventListener("scroll", scrollHandler);
@@ -151,13 +168,6 @@ function NavBar() {
         }
     }, [expand, handleClickOutside]);
 
-    /**
-     * Returns the appropriate CSS class for a flag SVG based on
-     * whether `lang` matches the currently active language.
-     */
-    const flagClass = (lang) =>
-        `lang-flag ${language === lang ? "lang-active" : "lang-inactive"}`;
-
     return (
         <div ref={navRef}>
         <Navbar
@@ -171,14 +181,14 @@ function NavBar() {
 
             <Container>
                 {/* Brand / logo — scrolls back to the hero section */}
-                <Navbar.Brand href="#home" className="d-flex" onClick={(e) => scrollToSection(e, "home")}>
+                <Navbar.Brand href="#home" className="d-flex" data-section="home" onClick={handleNavClick}>
                     <img src={logo} className="img-fluid logo" alt="brand" />
                 </Navbar.Brand>
 
                 {/* Hamburger toggler (visible on mobile only) — three bars that animate into an X */}
                 <Navbar.Toggle
                     aria-controls="responsive-navbar-nav"
-                    onClick={() => updateExpanded(expand ? false : "expanded")}
+                    onClick={handleToggle}
                 >
                     <span /><span /><span />
                 </Navbar.Toggle>
@@ -190,7 +200,8 @@ function NavBar() {
                             <Nav.Item key={id}>
                                 <Nav.Link
                                     href={`#${id}`}
-                                    onClick={(e) => { scrollToSection(e, id); updateExpanded(false); }}
+                                    data-section={id}
+                                    onClick={handleNavClick}
                                 >
                                     <span className={`nav-link-content lang-transition ${phase !== "idle" ? `lang-${phase}` : ""}`}>
                                         <Icon style={iconStyle} /> {t(labelKey)}
@@ -204,9 +215,9 @@ function NavBar() {
                             <Button className="lang-toggle-btn" onClick={toggleLanguage}>
                                 {/* Decorative corner-bracket frame (styled via CSS) */}
                                 <span className="lang-toggle-corners" />
-                                <FRFlag className={flagClass("fr")} />
+                                <FRFlag className={flagClassFr} />
                                 <span className="lang-separator">/</span>
-                                <UKFlag className={flagClass("en")} />
+                                <UKFlag className={flagClassEn} />
                             </Button>
                         </Nav.Item>
 
@@ -218,7 +229,7 @@ function NavBar() {
                                 rel="noopener noreferrer"
                                 className="navbar-social-link"
                                 aria-label="LinkedIn"
-                                onClick={() => updateExpanded(false)}
+                                onClick={closeExpand}
                             >
                                 <FaLinkedinIn />
                             </a>
@@ -228,7 +239,7 @@ function NavBar() {
                                 rel="noopener noreferrer"
                                 className="navbar-social-link"
                                 aria-label="GitHub"
-                                onClick={() => updateExpanded(false)}
+                                onClick={closeExpand}
                             >
                                 <AiFillGithub />
                             </a>

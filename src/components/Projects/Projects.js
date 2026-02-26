@@ -9,6 +9,8 @@ import djangoPythonImg from "../../assets/Projects/django_python.png";
 import armImg from "../../assets/Projects/arm.png";
 import towerfallImg from "../../assets/Projects/towerfall.png";
 
+const PROJECT_ROW_STYLE = { paddingBottom: "10px" };
+
 /** Order must match projects.entries in translations.js */
 const PROJECT_META = [
     { imgPath: jetroverImg, ghLink: "https://github.com/sebastien-fournier-software-robotics/solaris_basis", ongoing: true },
@@ -27,7 +29,7 @@ function Projects() {
     <Container fluid className="project-section" id="project">
       <Container>
         <h1 className="project-heading">{t("projects.title")}</h1>
-        <Row className="justify-content-center" style={{ paddingBottom: "10px" }}>
+        <Row className="justify-content-center" style={PROJECT_ROW_STYLE}>
           {entries.map((entry, index) => (
             <Col key={entry.title} xs={12} lg={4} className="project-card">
               <ProjectCard {...entry} {...PROJECT_META[index]} />

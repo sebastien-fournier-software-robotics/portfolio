@@ -356,22 +356,23 @@ export default function ParticleSphere() {
     }
     animate();
 
-    /* --- Resize handling --- */
-    function onResize() {
+    /* --- Resize handling (ResizeObserver: only when container size changes) --- */
+    const resizeObserver = new ResizeObserver(() => {
       const w = container.clientWidth;
       const h = container.clientHeight;
+      if (w === 0 || h === 0) return;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
       trailShaderMat.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 1.5);
-    }
-    window.addEventListener("resize", onResize, { passive: true });
+    });
+    resizeObserver.observe(container);
 
     /* --- Cleanup --- */
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("resize", onResize);
+      resizeObserver.disconnect();
       renderer.dispose();
       geometry.dispose();
       material.dispose();

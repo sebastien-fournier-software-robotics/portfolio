@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import {
     AiOutlineCarryOut,
@@ -136,7 +136,7 @@ const CATEGORY_KEYS = [
     "strategy",
 ];
 
-function TechBadge({ tag }) {
+const TechBadge = memo(function TechBadge({ tag }) {
     const iconSrc = TECH_ICON_IMGS[tag];
     const IconComponent = TECH_ICONS[tag];
     const color = TECH_COLORS[tag] || DEFAULT_BADGE_COLOR;
@@ -155,9 +155,9 @@ function TechBadge({ tag }) {
             {tag}
         </span>
     );
-}
+});
 
-function ValuePillarCard({ pillarKey, Icon }) {
+const ValuePillarCard = memo(function ValuePillarCard({ pillarKey, Icon }) {
     const { t } = useLanguage();
     const pillar = translations.skills.valuePillars[pillarKey];
     if (!pillar) return null;
@@ -173,9 +173,9 @@ function ValuePillarCard({ pillarKey, Icon }) {
             </div>
         </Col>
     );
-}
+});
 
-function SkillCategoryCard({ categoryKey }) {
+const SkillCategoryCard = memo(function SkillCategoryCard({ categoryKey }) {
     const { t } = useLanguage();
     const cat = translations.skills.categories[categoryKey];
     if (!cat) return null;
@@ -195,13 +195,15 @@ function SkillCategoryCard({ categoryKey }) {
             </div>
         </Col>
     );
-}
+});
+
+const SECTION_STYLE = { minHeight: "50vh", padding: "80px 0" };
 
 function Skills() {
     const { t } = useLanguage();
 
     return (
-        <section id="skills" className="skills-section" style={{ minHeight: "50vh", padding: "80px 0" }}>
+        <section id="skills" className="skills-section" style={SECTION_STYLE}>
             <Container>
                 <h1 className="project-heading">{t("skills.title")}</h1>
 

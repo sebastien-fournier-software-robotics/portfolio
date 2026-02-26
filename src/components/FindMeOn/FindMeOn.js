@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -51,7 +51,7 @@ function FindMeOn() {
         };
     }, [panelVisible]);
 
-    const handleCopyEmail = () => {
+    const handleCopyEmail = useCallback(() => {
         if (!panelVisible) {
             setPanelVisible(true);
             return;
@@ -65,7 +65,7 @@ function FindMeOn() {
             },
             () => {}
         );
-    };
+    }, [panelVisible]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -134,16 +134,19 @@ function FindMeOn() {
         }
     };
 
-    const clearError = (field) => {
+    const clearError = useCallback((field) => {
         setErrors((prev) => ({ ...prev, [field]: null }));
-    };
+    }, []);
 
-    const clearSubmitStatus = () => {
-        if (submitStatus === "success" || submitStatus === "error") {
-            setSubmitStatus("idle");
-            setSubmitErrorMessage(null);
-        }
-    };
+    const clearSubmitStatus = useCallback(() => {
+        setSubmitStatus((prev) => {
+            if (prev === "success" || prev === "error") {
+                setSubmitErrorMessage(null);
+                return "idle";
+            }
+            return prev;
+        });
+    }, []);
 
     return (
         <Container fluid className="contact-section">

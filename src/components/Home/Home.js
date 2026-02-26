@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { ParticleSphere } from "../shared";
@@ -12,6 +12,11 @@ import pdf from "../../assets/CV_ingenieur_robotique_vision.pdf";
 
 function Home() {
     const { t } = useLanguage();
+
+    const scrollToContact = useCallback((e) => {
+        e.preventDefault();
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, []);
 
     return (
         <section>
@@ -38,10 +43,7 @@ function Home() {
                             <div className="home-buttons">
                                 <Button
                                     className="home-contact-btn"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "center" });
-                                    }}
+                                    onClick={scrollToContact}
                                 >
                                     <MdOutlineEmail style={{ marginBottom: "2px" }} />
                                     &nbsp;{t("home.contactBtn")}

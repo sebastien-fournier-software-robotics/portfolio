@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Container } from "react-bootstrap";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { useLanguage } from "../../context/LanguageContext";
@@ -11,6 +11,8 @@ const EDUCATION_LOCAL_LOGOS = {
   strathclyde: strathclydeLogo,
 };
 
+const EDUCATION_SECTION_STYLE = { minHeight: "50vh", padding: "80px 0" };
+
 function parseEducationPeriod(period) {
   if (!period || typeof period !== "string") return { start: period, end: null, separator: null };
   const match = period.match(/^(.+?)\s+[–-]\s+(.+)$/);
@@ -18,7 +20,7 @@ function parseEducationPeriod(period) {
   return { start: period, end: null, separator: null };
 }
 
-function EducationSchoolLogo({ entry }) {
+const EducationSchoolLogo = memo(function EducationSchoolLogo({ entry }) {
   const [imgFailed, setImgFailed] = React.useState(false);
   const logoUrl = entry.logoKey ? EDUCATION_LOCAL_LOGOS[entry.logoKey] : entry.logo;
   const showImg = logoUrl && !imgFailed;
@@ -36,9 +38,9 @@ function EducationSchoolLogo({ entry }) {
       {initial}
     </span>
   );
-}
+});
 
-function EducationCard({ entry }) {
+const EducationCard = memo(function EducationCard({ entry }) {
   const { start, end, separator } = parseEducationPeriod(entry.period);
 
   return (
@@ -66,14 +68,14 @@ function EducationCard({ entry }) {
       </div>
     </div>
   );
-}
+});
 
 function Education() {
   const { t } = useLanguage();
   const entries = t("education.entries") || [];
 
   return (
-    <section id="education" className="education-section experiences-section" style={{ minHeight: "50vh", padding: "80px 0" }}>
+    <section id="education" className="education-section experiences-section" style={EDUCATION_SECTION_STYLE}>
       <Container>
         <h1 className="project-heading">{t("education.title")}</h1>
 

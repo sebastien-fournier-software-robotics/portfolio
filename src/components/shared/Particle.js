@@ -80,17 +80,16 @@ function Particle() {
     []
   );
 
+  const particleStyle = useMemo(
+    () => ({ position: "fixed", left: 0, top: 0, width: "100%", height: "100%" }),
+    []
+  );
+
   return (
     <Particles
       id="tsparticles"
       options={config}
-      style={{
-        position: "fixed",
-        left: 0,
-        top: 0,
-        width: "100%",
-        height: "100%",
-      }}
+      style={particleStyle}
     />
   );
 }

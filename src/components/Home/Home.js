@@ -68,12 +68,6 @@ function Home() {
                     <Row className="home-scroll-hint-row">
                         <Col xs={12} className="d-flex justify-content-center">
                             <div className="home-scroll-hint" aria-hidden="true">
-                                <span className="home-scroll-hint-icon" aria-hidden="true">
-                                    <svg width="22" height="36" viewBox="0 0 22 36" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <rect x="1" y="1" width="20" height="32" rx="10" />
-                                        <line x1="11" y1="10" x2="11" y2="18" />
-                                    </svg>
-                                </span>
                                 <span className="home-scroll-hint-arrow" aria-hidden="true">
                                     <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M1 1l6 6 6-6" />

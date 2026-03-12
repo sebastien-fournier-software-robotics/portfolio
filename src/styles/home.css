@@ -143,7 +143,6 @@
   align-items: center;
   justify-content: center;
   color: inherit;
-  animation: home-scroll-float 2.5s ease-in-out infinite;
 }
 
 .home-scroll-hint-icon svg {
@@ -155,6 +154,7 @@
   align-items: center;
   justify-content: center;
   color: inherit;
+  animation: home-scroll-float 2.5s ease-in-out infinite;
 }
 
 .home-scroll-hint-arrow svg {
@@ -163,6 +163,7 @@
 
 .home-scroll-hint-text {
   white-space: nowrap;
+  display: none;
 }
 
 .home-scroll-hint-delimiter {
@@ -189,7 +190,7 @@
     bottom: auto;
     left: auto;
     transform: none;
-    margin-top: 1.25rem;
+    margin-top: 4rem;
   }
 
   .home-scroll-hint-row {
@@ -210,11 +211,17 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 991px) {
+  .home-scroll-hint {
+    margin-top: 12rem;
+  }
+}
+
 @media (max-width: 768px) {
   .home-scroll-hint {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     letter-spacing: 0.1em;
-    margin-top: 0.75rem;
+    margin-top: 4rem;
   }
   .home-scroll-hint-icon svg {
     width: 18px;
@@ -228,7 +235,7 @@
   }
   .home-section .container.home-content,
   .home-content {
-    padding: 4.5rem 1.5rem 1.25rem !important;
+    padding: 3.5rem 1.5rem 1rem !important;
     padding-left: 1.75rem !important;
     padding-right: 1.25rem !important;
     text-align: center;
@@ -269,7 +276,7 @@
     order: 1;
   }
   .home-header {
-    padding-top: 28px !important;
+    padding-top: 16px !important;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -320,12 +327,12 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
     text-align: center !important;
-    font-size: 1.6em !important;
+    font-size: 1.5em !important;
     margin-left: auto;
     margin-right: auto;
   }
   .heading-name {
-    font-size: 1.5em !important;
+    font-size: 1.4em !important;
     line-height: 1.3;
   }
   .main-name {
@@ -384,7 +391,7 @@
 
 @media (max-width: 768px) {
   .home-type-wrap {
-    padding: 1.5rem 1rem;
+    padding: 1.1rem 0.75rem;
     text-align: center;
     justify-content: center;
   }
@@ -454,6 +461,23 @@
 @media (max-width: 768px) {
   .home-roles-rotator {
     font-size: 1.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-roles-rotator-text {
+    white-space: normal;
+    text-align: center;
+    overflow: visible;
+    text-overflow: unset;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-roles-rotator-text {
+    white-space: normal;
+    text-align: center;
   }
 }
 

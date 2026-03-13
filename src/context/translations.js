@@ -40,22 +40,22 @@ const translations = {
     typewriter: {
         strings: {
             en: [
-                "Software Robotics Engineer",
+                "Software Engineer",
+                "Architect",
+                "Robotics",
                 "Computer Vision",
-                "Machine Learning",
-                "Edge Computing",
-                "Software Architect",
+                "Machine Learning Engineer",
+                "Edge AI",
                 "Freelancer",
-                "Open Source Contributor",
             ],
             fr: [
-                "Ingénieur Robotique Logicielle",
+                "Ingénieur Logiciel",
+                "Architecte",
+                "Robotique",
                 "Computer Vision",
-                "Machine Learning",
-                "Edge Computing",
-                "Architecte Logiciel",
+                "Machine Learning Engineer",
+                "Edge AI",
                 "Freelance",
-                "Contributeur Open Source",
             ],
         },
     },
@@ -69,53 +69,57 @@ const translations = {
             fr: "À Propos",
         },
         subtitle: {
-            en: "« Benefit from expertise in Robotics, Computer Vision and Software. »",
-            fr: "« Bénéficiez d'une expertise en Robotique, Computer Vision et Logiciel. »",
+            en: "« Benefit from expertise in Software Architecture, Computer Vision and Machine Learning. »",
+            fr: "« Bénéficiez d'une expertise en Architecture Logicielle, Computer Vision et Machine Learning. »",
         },
         body: {
             en: (
                 <>
-                    From strategic framing to field deployment and observability of your systems,
-                    I support all stages of your project lifecycle at the intersection of software
-                    architecture, advanced robotics, and embedded intelligence.
+                    My name is Sébastien Fournier. I am an engineer and software architect.
+                    I work on critical software systems in sectors with high technical stakes:
+                    autonomous vehicles, mobile robotics, medical imaging, industry, agritech,
+                    and the environment.
                     <br /><br />
-                    Autonomous robotics, perception, and computer vision are the disruptive
-                    technologies redefining many standards today. I don&apos;t just build theoretical
-                    prototypes: I build robust, maintainable, and high-performance systems capable
-                    of facing real-world constraints.
+                    For the past seven years, I have been supporting teams throughout the entire
+                    project lifecycle, from technical scoping to production deployment: software
+                    architecture and development, perception and computer vision pipelines,
+                    and machine learning on servers or on constrained embedded targets (Edge AI).
                     <br /><br />
-                    My name is Sébastien Fournier. I am a software robotics engineer and architect,
-                    passionate about autonomous navigation, embedded AI, and technical excellence.
+                    My clients appreciate iterative, pragmatic, results-oriented support: meeting
+                    deadlines, putting robust, maintainable, and observable solutions into
+                    production.
                     <br /><br />
-                    My approach is based on an iterative methodology and a strong
-                    ability to prioritize the most critical challenges. Beyond
-                    technical expertise, I put my energy and proactivity at the
-                    service of the collective. Let&apos;s work together to turn your
-                    technological visions into lasting reality.
+                    Beyond technical expertise, I emphasize knowledge transfer, clear communication,
+                    and collective intelligence to align business lines around a common vision,
+                    in both French and English.
+                    <br /><br />
+                    Let&apos;s move forward together to turn your technological visions into a
+                    sustainable reality.
                 </>
             ),
             fr: (
                 <>
-                    Du cadrage stratégique jusqu&apos;au déploiement sur le terrain et à
-                    l&apos;observabilité de vos systèmes, j&apos;interviens sur toutes les étapes
-                    du cycle de vie de vos projets à l&apos;intersection de l&apos;architecture
-                    logicielle, de la robotique avancée et de l&apos;intelligence embarquée.
+                    Je m&apos;appelle Sébastien Fournier. Je suis ingénieur et architecte logiciel.
+                    J&apos;interviens sur des systèmes logiciels critiques dans des
+                    secteurs à fort enjeu technique : véhicules autonomes, robotique mobile,
+                    imagerie médicale, industrie, agritech et environnement.
                     <br /><br />
-                    La robotique autonome, la perception et la vision par ordinateur sont les
-                    technologies de rupture qui redéfinissent aujourd&apos;hui de nombreux standards.
-                    Je ne crée pas seulement des prototypes théoriques : je bâtis des systèmes
-                    robustes, maintenables et performants, capables d&apos;affronter les contraintes
-                    du monde réel.
+                    Depuis 7 ans, j&apos;accompagne vos équipes sur l&apos;ensemble du cycle de vie
+                    de vos projets, du cadrage technique au déploiement en production : architecture
+                    et développement logiciel, pipelines de perception et de vision par ordinateur,
+                    Machine Learning sur serveur ou sur cibles embarquées contraintes
+                    (Edge AI).
                     <br /><br />
-                    Je m&apos;appelle Sébastien Fournier. Je suis ingénieur en robotique logicielle
-                    et architecte, passionné par la navigation autonome, l&apos;IA embarquée et
-                    l&apos;excellence technique.
+                    Mes clients apprécient un accompagnement itératif et pragmatique, orienté résultats :
+                    respect des délais, mise en production de solutions
+                    robustes, maintenables et observables.
                     <br /><br />
-                    Ma méthode repose sur une approche itérative et une
-                    forte capacité à prioriser les défis les plus critiques. Au-delà de
-                    l&apos;expertise technique, je mets mon énergie et ma proactivité au
-                    service d&apos;un collectif. Avançons ensemble pour transformer vos
-                    visions technologiques en une réalité durable.
+                    Au-delà de l&apos;expertise technique, je mets l&apos;accent sur la
+                    transmission, la clarté de la communication et l&apos;intelligence collective,
+                    pour aligner les métiers autour d&apos;une vision commune, en français comme en
+                    anglais.
+                    <br /><br />
+                    Avançons ensemble pour transformer vos visions technologiques en une réalité durable.
                 </>
             ),
         },
@@ -137,26 +141,26 @@ const translations = {
             delivery: {
                 title: { en: "Pragmatism", fr: "Pragmatisme" },
                 description: {
-                    en: "Meet your deadlines, clear the backlog, deliver the results.",
+                    en: "Meet your deadlines, clear the backlog, deliver results.",
                     fr: "Respectez vos deadlines, dépilez le backlog, livrez les résultats.",
                 },
             },
             leadership: {
                 title: { en: "Collective intelligence", fr: "Intelligence collective" },
                 description: {
-                    en: "Lead the team. Foster exchange between disciplines.",
-                    fr: "Animez l’équipe. Favorisez l’échange entre les métiers.",
+                    en: "Motivate the team, promote communication between disciplines, build a strategic vision",
+                    fr: "Animez l’équipe, favorisez l'échange entre les métiers, élaborez une vision stratégique.",
                 },
             },
             knowledge: {
                 title: { en: "Knowledge transfer", fr: "Transmission" },
                 description: {
-                    en: "Preserve know-how and knowledge.",
-                    fr: "Conservez le savoir-faire et les connaissances.",
+                    en: "Natural pedagogy, clear documentation, upskilling of your teams.",
+                    fr: "Pédagogie naturelle, documentation claire, montée en compétences de vos équipe.",
                 },
             },
             expertise: {
-                title: { en: "Systemic approach", fr: "Approche systémique" },
+                title: { en: "Systemic approach", fr: "Vision systémique" },
                 description: {
                     en: "End-to-end expertise on your projects, from design to deployment.",
                     fr: "Une expertise complète sur vos projets, de la conception au déploiement.",
@@ -185,12 +189,12 @@ const translations = {
                 tech: ["ROS2", "Nav2", "SLAM Toolbox", "RTAB-Map", "Cartographer"],
             },
             computerVision: {
-                title: { en: "Computer Vision & Edge\u00A0AI", fr: "Computer Vision & Edge\u00A0AI" },
+                title: { en: "Computer Vision & Machine Learning", fr: "Computer Vision & Machine Learning" },
                 description: {
                     en: "Optimization and industrialization of your perception and machine learning pipelines on embedded targets.",
-                    fr: "Optimisation et industrialisation de vos pipelines de perception et Machine Learning sur cibles embarquées.",
+                    fr: "Pipelines de perception : détection, segmentation d'images, tracking. Entrainement, tuning, optimisation. Deep Learning. Déploiement serveur ou embarqué.",
                 },
-                tech: ["NVIDIA Jetson", "OpenCV", "PyTorch", "TensorFlow", "HuggingFace", "TensorRT"],
+                tech: ["OpenCV", "PyTorch", "TensorFlow","YOLOv8", "HuggingFace", "TensorRT"],
             },
             devops: {
                 title: { en: "Automation & DevOps", fr: "Automatisation, DevOps" },

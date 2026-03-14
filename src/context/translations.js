@@ -75,15 +75,12 @@ const translations = {
         body: {
             en: (
                 <>
-                    My name is Sébastien Fournier. I am an engineer and software architect.
-                    I work on critical software systems in sectors with high technical stakes:
-                    autonomous vehicles, mobile robotics, medical imaging, industry, agritech,
-                    and the environment.
+                    Senior software engineer specialized in C/C++ and Python, I work on software architecture,
+                    software and embedded development, and the training and deployment of machine learning
+                    and computer vision models, from scoping to production.
                     <br /><br />
-                    For the past seven years, I have been supporting teams throughout the entire
-                    project lifecycle, from technical scoping to production deployment: software
-                    architecture and development, perception and computer vision pipelines,
-                    and machine learning on servers or on constrained embedded targets (Edge AI).
+                    Autonomous vehicles, mobile robotics, medical imaging, industry, agritech: I design robust
+                    systems for servers and constrained targets.
                     <br /><br />
                     My clients appreciate iterative, pragmatic, results-oriented support: meeting
                     deadlines, putting robust, maintainable, and observable solutions into
@@ -99,16 +96,12 @@ const translations = {
             ),
             fr: (
                 <>
-                    Je m&apos;appelle Sébastien Fournier. Je suis ingénieur et architecte logiciel.
-                    J&apos;interviens sur des systèmes logiciels critiques dans des
-                    secteurs à fort enjeu technique : véhicules autonomes, robotique mobile,
-                    imagerie médicale, industrie, agritech et environnement.
+                    Ingénieur logiciel senior spécialisé en C/C++ et Python, j'interviens sur l'architecture,
+                    le développement logiciel ou embarqué, l'entraînement et le déploiement de modèles
+                    de Machine Learning et Computer Vision — du cadrage à la mise en production.
                     <br /><br />
-                    Depuis 7 ans, j&apos;accompagne vos équipes sur l&apos;ensemble du cycle de vie
-                    de vos projets, du cadrage technique au déploiement en production : architecture
-                    et développement logiciel, pipelines de perception et de vision par ordinateur,
-                    Machine Learning sur serveur ou sur cibles embarquées contraintes
-                    (Edge AI).
+                    Véhicules autonomes, robotique mobile, imagerie médicale, industrie, agritech : 
+                    je conçois des systèmes robustes sur serveur ou sur cibles contraintes.
                     <br /><br />
                     Mes clients apprécient un accompagnement itératif et pragmatique, orienté résultats :
                     respect des délais, mise en production de solutions
@@ -272,7 +265,7 @@ const translations = {
                 {
                     company: "Freelance",
                     logo: null,
-                    role: "Software Engineer and Computer Vision",
+                    role: "Software and Computer Vision Engineer",
                     period: "May 2025 – Present",
                     startDate: "2025-05",
                     isCurrent: true,
@@ -280,19 +273,20 @@ const translations = {
                     project: "Software architecture, computer vision and machine learning, robotics development with perception and navigation under embedded constraints.",
                     missions: [
                         "Software architecture and development.",
-                        "Computer Vision and Machine Learning: training, integration, optimization. Pipelines on servers or embedded targets (Edge AI).",
-                        "Robotics and navigation with sensor fusion, localization, trajectory planning, obstacle detection and avoidance.",
-                        "Integration, continuous deployment, DevOps.",
-                        "Implementation of observability solutions.",
+                        "Computer vision, machine learning, and deep learning pipelines.",
+                        "Detection, image segmentation, and automated tracking.",
+                        "Training, fine-tuning, and integration.",
+                        "Deployment on servers and embedded targets (Edge AI).",
+                        "Embedded systems: real-time firmware and middleware development.",
+                        "Robotics: sensor fusion, 2D/3D SLAM, trajectory planning, obstacle detection.",
+                        "CI/CD automation and observability solutions.",
                         "Simulation.",
-                        "Q&A: unit and functional testing, non-regression.",
+                        "QA with unit, functional, and non-regression tests.",
                         "Strategy and business vision.",
                     ],
                     achievements: [
-                        "Design of an autonomous defect detection rover for solar farms.",
-                        "Development of an autonomous navigation system for an exploration robot.",
+                        "Design of an autonomous defect-detection rover for solar farms.",
                         "Creation of an optimized C++ library for image processing.",
-                        "Design of a simplified programming interface for embedded systems.",
                         "Implementation of obstacle detection algorithms for autonomous vehicles.",
                     ],
                     results: [
@@ -307,21 +301,22 @@ const translations = {
                         "PyTorch",
                         "TensorFlow",
                         "YOLOv8",
-                        "NVIDIA Jetson",
-                        "FastAPI",
-                        "GoogleTest",
+                        "Scikit-learn",
                         "HuggingFace",
-                        "Linux",
                         "CI/CD",
                         "GitHub Actions",
                         "Docker",
+                        "Linux",
+                        "NVIDIA Jetson",
+                        "FastAPI",
                         "ROS2",
                         "Nav2",
                         "slam_toolbox",
                         "RTAB-Map",
-                        "Gazebo",
                         "PlotJuggler",
                         "FoxGlove",
+                        "Gazebo",
+                        "GoogleTest",
                     ],
                 },
                 {
@@ -582,19 +577,20 @@ const translations = {
                     project: "Architecture logicielle, vision par ordinateur et machine learning, développement robotique avec perception et navigation sous contraintes embarquées.",
                     missions: [
                         "Architecture et développement logiciel.",
-                        "Vision par ordinateur et Machine Learning : entraînement, intégration, optimisation. Pipelines sur serveurs ou embarqués (Edge AI).",
-                        "Robotique et navigation avec fusion de capteurs, localisation, planification de trajectoires, détection et évitement d'obstacles.",
-                        "Intégration, déploiement continu et DevOps.",
-                        "Mise en place de solutions d'observabilité.",
+                        "Pipelines de Computer Vision & Machine Learning, Deep Learning.",
+                        "Détection, segmentation d'images, tracking automatique.",
+                        "Entraînement, fine-tuning, intégration.",
+                        "Déploiement sur serveur et sur cibles embarquées (Edge AI).",
+                        "Systèmes embarqués : développement firmware et middleware temps-réel.",
+                        "Robotique : fusion de capteurs, SLAM 2D/3D, planification de trajectoires, détection d'obstacles.",
+                        "Automatisation CI/CD, solutions d'observabilité.",
                         "Simulation.",
                         "Q&A avec tests unitaires, fonctionnels et non-régression.",
                         "Stratégie et vision business.",
                     ],
                     achievements: [
                         "Conception d’un rover autonome de détection de défauts dans les fermes solaires.",
-                        "Développement d'un système de navigation autonome pour un robot d'exploration.",
                         "Création d'une bibliothèque C++ optimisée pour traitement d'images.",
-                        "Conception d'une interface de programmation simplifiée pour systèmes embarqués.",
                         "Implémentation d'algorithmes de détection d'obstacles pour véhicules autonomes.",
                     ],
                     results: [
@@ -609,21 +605,22 @@ const translations = {
                         "PyTorch",
                         "TensorFlow",
                         "YOLOv8",
-                        "NVIDIA Jetson",
-                        "FastAPI",
-                        "GoogleTest",
+                        "Scikit-learn",
                         "HuggingFace",
-                        "Linux",
                         "CI/CD",
                         "GitHub Actions",
                         "Docker",
+                        "Linux",
+                        "NVIDIA Jetson",
+                        "FastAPI",
                         "ROS2",
                         "Nav2",
                         "slam_toolbox",
                         "RTAB-Map",
-                        "Gazebo",
                         "PlotJuggler",
                         "FoxGlove",
+                        "Gazebo",
+                        "GoogleTest",
                     ],
                 },
                 {
